@@ -1,0 +1,74 @@
+# Settings for the development system
+
+page {
+	includeJSlibs {
+		modernizr = EXT:theme_bootstrap/Resources/Public/Contrib/BsCompressed/modernizr.min.js
+		modernizr {
+			forceOnTop = 1
+		#	disableCompression = 1
+		#	excludeFromConcatenation = 1
+		}
+	}
+	
+	includeJS >
+	
+	includeJSFooterlibs {
+	
+		jquery    = EXT:lef_bootstrap_theme/Resources/Public/JavaScript/jquery-1.11.2.min.js
+		jquery{
+			forceOnTop = 1
+			disableCompression = 1
+			}
+		bootstrap = EXT:theme_bootstrap/Resources/Public/Contrib/BsCompressed/bootstrap.min.js
+		bootstrap {
+			disableCompression = 1
+		}
+		
+		responsiveimages = EXT:lef_bootstrap_theme/Resources/Public/JavaScript/jquery.responsiveimages.min.js
+		responsiveimages {
+			disableCompression = 1
+		}
+		theme = EXT:lef_bootstrap_theme/Resources/Public/JavaScript/main.min.js
+		theme {
+		#	external = 0
+			disableCompression = 1
+		#	excludeFromConcatenation = 1
+		}
+	#############################################
+        #### INCLUDE RESPOND JS FOR IE DINOSAURS ####
+        #############################################
+        #### NOTE : add conditional comment to cope with static cache
+        respond = {$page.includePath.javascript}Libs/respond.min.js
+        respond{
+        	allWrap = <!--[if IE 8 ]>|<![endif]-->
+        	excludeFromConcatenation = 1
+        	disableCompression = 1
+        }
+   }
+}
+
+# Settings for the production system
+[globalVar = LIT:1 = {$themes.mode.isProduction}]
+page {
+
+	includeJSlibs {
+		modernizr = https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js
+		modernizr {
+			external = 1
+		}
+	}
+	
+	includeJSFooterlibs {
+		jquery = https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js
+		jquery{
+			external = 1
+			forceOnTop = 1
+			}
+		bootstrap = http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js
+		bootstrap{
+			external = 1
+			}
+		
+	}
+}
+[global]

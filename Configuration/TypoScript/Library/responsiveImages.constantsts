@@ -1,0 +1,194 @@
+############################
+### CUSTOM SUBCATEGORIES ###
+############################
+# #customcategory=responsive images=Theme: Responsive Images
+# #customcategory=grid system=Theme: Responsive Grid setup
+# #customcategory=variants=Theme: Variants
+# customsubcategory=600=Breakpoints media query (screen width)
+# customsubcategory=610=Container
+# customsubcategory=620=Container behaviour
+# customsubcategory=630=Enable breakpoints
+# customsubcategory=640=Retina settigs
+# customsubcategory=650=Images
+# customsubcategory=660=Frames
+# customsubcategory=700=Variants extra small (Default values, must be set)
+# customsubcategory=710=Variants small (inherit value from smaller)
+# customsubcategory=720=Variants medium (inherit value from smaller)
+# customsubcategory=730=Variants large (inherit value from smaller)
+# customsubcategory=740=Variants extra large (inherit value from smaller)
+
+plugin.lef_bootstrap_theme {
+    
+    screen{
+        # cat=grid system,advanced/600/150; type=int+; label=1 Screen : Minimum width of the screen extra small
+        xs = 480
+		# cat=grid system,advanced/600/140; type=int+; label=2 Screen : Minimum width of the screen small
+        sm = 768
+        # cat=grid system,advanced/600/130; type=int+; label=3 Screen : Minimum width of the screen medium
+        md = 992
+        # cat=grid system,advanced/600/120; type=int+; label=4 Screen : Minimum width of the screen large
+        lg = 1200
+        # cat=grid system,advanced/600/110; type=int+; label=5 Screen : Minimum width of the screen extra large
+        xl = 1920
+        # cat=grid system,advanced/600/100; type=int+; label=6 Screen : Maximum width of the screen
+        xxl = 2400
+      }
+    
+    container{    
+        # cat=grid system,advanced/610/140; type=int+; label=1 Container : Width of the container extra small
+        xs = 450
+		# cat=grid system,advanced/610/130; type=int+; label=2 Container : Width of the container small
+        sm = 720
+        # cat=grid system,advanced/610/120; type=int+; label=3 Container : Width of the container medium
+        md = 940
+        # cat=grid system,advanced/610/110; type=int+; label=4 Container : Width of the container large
+        lg = 1140
+        # cat=grid system,advanced/610/100; type=int+; label=5 Container : Width of the container extra large
+        xl = 1840
+        
+    }
+    
+    fluid{    
+        # cat=grid system,expert/620/240; type=boolean; label=1 Fluid : Container behaviour fluid extra small
+        xs = 1
+        # cat=grid system,expert/620/230; type=boolean; label=2 Fluid : Container behaviour fluid small 
+        sm = 1
+		# cat=grid system,expert/620/220; type=boolean; label=3 Fluid : Container behaviour fluid medium
+        md = 0
+        # cat=grid system,expert/620/210; type=boolean; label=4 Fluid : Container behaviour fluid large
+        lg = 0
+        # cat=grid system,expert/620/200; type=boolean; label=5 Fluid : Container behaviour fluid extra large
+        xl = 0
+
+     }  
+    
+    enable{
+        # cat=grid system,expert/630/140; type=boolean; label=1 Breakpoint : Enable breakpoint extra small
+        xs = 1
+        # cat=grid system,expert/630/130; type=boolean; label=2 Breakpoint : Enable breakpoint small
+        sm = 1
+        # cat=grid system,expert/630/120; type=boolean; label=3 Breakpoint : Enable breakpoint medium
+        md = 1
+        # cat=grid system,expert/630/110; type=boolean; label=4 Breakpoint : Enable breakpoint large
+        lg = 1
+        # cat=grid system,expert/630/100; type=boolean; label=5 Breakpoint : Enable breakpoint extra large 
+        xl = 0
+        
+        # cat=responsive images,advanced/650/100; type=boolean; label=Adapt number of columns for multiple images according breakpoints 
+        imageColumnsAdaptive= 1
+    }
+    
+    # cat=grid system,advanced/610/200; type=int+; label=Number of columns : Maximum number of columns
+    columns = 12
+    # cat=grid system,advanced/610/210; type=int+; label=Gutter width:Width of the gutter
+    gutter = 30
+    
+    retina {
+        # cat=responsive images,basic/640/100; type=boolean; label=Enable retina:Enable retina images in source sets
+        enable = 0
+        # cat=responsive images,expert/640/110; type=int+; label=Retina Pixel density: Pixel density for retina images
+        pixeldensity = 2
+        # cat=responsive images,expert/640/120; type=string; label=Retina density media query: Media query tag for pixel density
+        mediaquery = -webkit-min-device-pixel-ratio
+    }  
+    
+    images{
+        # cat=responsive images,advanced/650/110; type=options[50%=2,33%=3,25%=4]; label=Image in text width:Divide the available width by this  
+        divideImageAboveTextWidth = 2
+    }
+    
+    frame{
+        xs{
+            # cat=variants,expert/660/100; type=string; label=Frame indent:Width of indent 10% 
+            indent     = *9/10
+            # cat=variants,expert/660/110; type=string; label=Frame indent 33/66%:Width of indent 33/66% 
+            indent3366 = *2/3
+            # cat=variants,expert/660/120; type=string; label=Frame indent 66/33% :Width of indent 66/33%
+            indent6633 = *2/3
+            # cat=variants,expert/660/130; type=string; label=Frame frame1:Width of frame1 
+            frame1 = 
+            # cat=variants,expert/660/140; type=string; label=Frame frame2:Width of frame2
+            frame2 = 
+        }
+    }
+    
+    variant{
+        xs{
+            # cat=variants,expert/700/100; type=int+; label=Frame wide-screen:Width of wide-screen padding
+            wideScreen = 30
+            # cat=variants,expert/700/110; type=int+; label=Frame framed:Width of framed padding
+            framed = 40
+            # cat=variants,expert/700/120; type=int+; label=Frame framed-small:Width of framed-small padding
+            framedSmall = 20
+            # cat=variants,expert/700/130; type=int+; label=Frame framed-large:Width of framed-large padding
+            framedLarge = 50
+            # cat=variants,expert/700/140; type=int+; label=Frame alert:Width of alert padding 
+            alert = 32
+        }
+        sm{
+            # cat=variants,expert/710/100; type=int+; label=Frame wide-screen:Width of wide-screen padding
+            wideScreen = 
+            # cat=variants,expert/710/110; type=int+; label=Frame framed:Width of framed padding
+            framed = 
+            # cat=variants,expert/710/120; type=int+; label=Frame framed-small:Width of framed-small padding
+            framedSmall = 
+            # cat=variants,expert/710/130; type=int+; label=Frame framed-large:Width of framed-large padding
+            framedLarge = 
+            # cat=variants,expert/710/140; type=int+; label=Frame alert:Width of alert padding 
+            alert = 
+        }
+        md{
+            # cat=variants,expert/720/100; type=int+; label=Frame wide-screen:Width of wide-screen padding
+            wideScreen = 120
+            # cat=variants,expert/720/110; type=int+; label=Frame framed:Width of framed padding
+            framed = 
+            # cat=variants,expert/720/120; type=int+; label=Frame framed-small:Width of framed-small padding
+            framedSmall = 
+            # cat=variants,expert/720/130; type=int+; label=Frame framed-large:Width of framed-large padding
+            framedLarge = 
+            # cat=variants,expert/720/140; type=int+; label=Frame alert:Width of alert padding 
+            alert = 
+        }
+        lg{
+            # cat=variants,expert/730/100; type=int+; label=Frame wide-screen:Width of wide-screen padding
+            wideScreen = 
+            # cat=variants,expert/730/110; type=int+; label=Frame framed:Width of framed padding
+            framed = 
+            # cat=variants,expert/730/120; type=int+; label=Frame framed-small:Width of framed-small padding
+            framedSmall = 
+            # cat=variants,expert/730/130; type=int+; label=Frame framed-large:Width of framed-large padding
+            framedLarge = 
+            # cat=variants,expert/730/140; type=int+; label=Frame alert:Width of alert padding 
+            alert = 
+        }
+        xl{
+            # cat=variants,expert/740/100; type=int+; label=Frame wide-screen:Width of wide-screen padding
+            wideScreen = 
+            # cat=variants,expert/740/110; type=int+; label=Frame framed:Width of framed padding
+            framed = 
+            # cat=variants,expert/740/120; type=int+; label=Frame framed-small:Width of framed-small padding
+            framedSmall = 
+            # cat=variants,expert/740/130; type=int+; label=Frame framed-large:Width of framed-large padding
+            framedLarge = 
+            # cat=variants,expert/740/140; type=int+; label=Frame alert:Width of alert padding 
+            alert = 
+        }
+    }
+}
+
+styles.content.imgtext {
+    # cat=responsive images,advanced/650/150; type=options[Default <img>=default, <img> with alternate sources as srcset=srcset, <picture> with alternate sources as <source> =picture, <img> with alternate sources as data and advanced lazyload (javascript)=lazyload]; label= Rendering-type for responsive images.
+    layoutKey = lazyload
+}
+
+themes.mode.isProduction = 0
+
+# defaults for css styled content
+styles.content.imgtext{
+    # match bootstrap css border 
+    borderThick = 1
+    borderSpace = 4
+    colSpace = 30
+    maxWInText = 0
+    maxW = 0
+}

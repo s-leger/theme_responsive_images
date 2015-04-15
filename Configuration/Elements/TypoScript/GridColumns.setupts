@@ -1,0 +1,367 @@
+#####################################
+#### LEF Bootstrap 3.x Grids     ####
+#####################################
+#### Override parts of standard setup
+#### Add support for 5 breakpoints
+
+lib.gridelements{
+    
+    #####################################
+    ## Register columns width
+    #####################################
+    
+    renderColumns = COA
+    renderColumns {
+        # register number of columns
+        10 = LOAD_REGISTER
+        10 {
+            columns_xs {
+                cObject = TEXT
+                cObject{
+                    value = {$plugin.lef_bootstrap_theme.columns}
+                    override{
+                        field = parentgrid_flexform_column_widths_xs
+                        required = 1
+                        listNum = 0
+                        listNum.splitChar = #
+                        stdWrap {
+                            intval = 1
+                            stdWrap.replacement.10 {            
+                                search = #extrasmall-width-([0-9]+)#i
+                                replace = \1
+                                useRegExp = 1
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        11 = LOAD_REGISTER
+        11 {
+            columns_sm{
+                cObject = TEXT
+                cObject {
+                    data = register:columns_xs
+                    override{
+                        field = parentgrid_flexform_column_widths_sm
+                        required = 1
+                        listNum = 0
+                        listNum.splitChar = #
+                        stdWrap {
+                            intval = 1
+                            stdWrap.replacement.10 {            
+                                search = #small-width-([0-9]+)#i
+                                replace = \1
+                                useRegExp = 1
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        12 = LOAD_REGISTER
+        12 {
+            columns_md{
+                cObject = TEXT
+                cObject {
+                    data = register:columns_sm
+                    override{
+                        field = parentgrid_flexform_column_widths_md
+                        required = 1
+                        listNum = 0
+                        listNum.splitChar = #
+                        stdWrap {
+                            intval = 1
+                            stdWrap.replacement.10 {            
+                                search = #medium-width-([0-9]+)#i
+                                replace = \1
+                                useRegExp = 1
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        13 = LOAD_REGISTER
+        13 {
+            columns_lg{
+                cObject = TEXT
+                cObject {
+                    data = register:columns_md
+                    override{
+                        field = parentgrid_flexform_column_widths_lg
+                        required = 1
+                        listNum = 0
+                        listNum.splitChar = #
+                        stdWrap {
+                            intval = 1
+                            stdWrap.replacement.10 {            
+                                search = #large-width-([0-9]+)#i
+                                replace = \1
+                                useRegExp = 1
+                            }
+                        }
+                    }
+                }
+            }
+		}	
+        14 = LOAD_REGISTER
+        14 {
+            columns_xl{
+                cObject = TEXT
+                cObject {
+                    data = register:columns_lg
+                    override{
+                        field = parentgrid_flexform_column_widths_xl
+                        required = 1
+                        listNum = 0
+                        listNum.splitChar = #
+                        stdWrap {
+                            intval = 1
+                            stdWrap.replacement.10 {            
+                                search = #extralarge-width-([0-9]+)#i
+                                replace = \1
+                                useRegExp = 1
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        # register real width of columns
+        
+        20 = LOAD_REGISTER
+        20 {
+            width_xxs {
+                cObject = COA
+                cObject{
+                    20 = TEXT
+                    20.data =  register:width_xxs
+                    30 = TEXT
+                    30.value = /{$plugin.lef_bootstrap_theme.columns}*
+                    40 = TEXT
+                    40.data = register:columns_xs
+                }
+                prioriCalc=1
+            }
+            width_xs < .width_xxs
+            width_xs.cObject {
+                20.data = register:width_xs
+                40.data = register:columns_xs
+            }
+            width_sm < .width_xxs
+            width_sm.cObject{
+                20.data = register:width_sm
+                40.data = register:columns_sm
+            }
+            width_md < .width_xxs
+            width_md.cObject{
+                20.data = register:width_md
+                40.data = register:columns_md
+            }
+            width_lg < .width_xxs
+            width_lg.cObject{
+                20.data = register:width_lg
+                40.data = register:columns_lg
+            }
+            width_xl < .width_xxs
+            width_xl.cObject{
+                20.data = register:width_xl
+                40.data = register:columns_xl
+            }
+        }
+        30 = < tt_content
+        
+        # 10-13
+        40 = RESTORE_REGISTER
+        41 = RESTORE_REGISTER
+        42 = RESTORE_REGISTER
+        43 = RESTORE_REGISTER
+        44 = RESTORE_REGISTER
+
+        # 20
+        50 = RESTORE_REGISTER
+    }
+    
+    
+    2ColumnGrid >
+    3ColumnGrid >
+    4ColumnGrid >
+    
+    #####################################
+    ## 2 columns
+    #####################################
+   		
+		
+			
+    2ColumnGrid < .defaultGridSetup
+    2ColumnGrid {
+        innerWrap.cObject.default.20 {
+            40.postUserFunc {
+                responsiveColumnMapping >
+            }
+            50 = TEXT
+            50.value = {$lib.content.cssMap.responsive.row.default-row}
+            50.noTrimWrap = | ||
+        }
+        columns.0 {
+           prepend = COA
+			prepend {
+				10 = TEXT
+				10 {
+					field = flexform_column_widths_md
+					required = 1
+					listNum = 0
+					listNum.splitChar = #
+					wrap = ,|
+				}
+				20 < .10
+				20.field = flexform_column_widths_sm
+				30 < .10
+				30.field = flexform_column_widths_xs
+				40 < .10
+				40.field = flexform_column_widths_lg
+				50 < .10
+				50.field = flexform_column_widths_xl
+				
+				stdWrap.stdWrap.postUserFunc = KayStrobach\Themes\Frontend\CssClassMapper->mapGenericToFramework
+				stdWrap.stdWrap.postUserFunc {
+					responsiveColumnMapping =< lib.content.cssMap.responsive.column
+				}
+				stdWrap.ifEmpty = {$lib.content.cssMap.responsive.column.default-2-column}
+				stdWrap.noTrimWrap = |<div class="column-1 |">|
+			}
+            
+            renderObj < lib.gridelements.renderColumns
+             wrap = |</div>
+        }
+        columns.1 < .columns.0
+        columns.1 {
+           prepend {
+                10.listNum = 1
+                20.listNum = 1
+                30.listNum = 1
+                40.listNum = 1
+                50.listNum = 1
+                stdWrap.noTrimWrap = |<div class="column-2 |">|
+            }	
+            renderObj{
+                10.columns_xs.cObject{
+                    value = {$plugin.lef_bootstrap_theme.columns}
+                    override.listNum = 1
+                }
+                11.columns_sm.cObject{
+                    data = register:columns_xs
+                    override.listNum = 1
+                }
+                12.columns_md.cObject{
+                    data = register:columns_sm
+                    override.listNum = 1
+                }
+                13.columns_lg.cObject{
+                    data = register:columns_md
+                    override.listNum = 1
+                }
+                14.columns_xl.cObject{
+                    data = register:columns_lg
+                    override.listNum = 1
+                }
+            }
+        }
+    }
+    
+    
+    #####################################
+    ## 3 columns
+    #####################################
+     
+     3ColumnGrid < .2ColumnGrid 
+     3ColumnGrid {
+        columns.2 < .columns.1
+        columns.2 {
+           prepend {
+                10.listNum = 2
+                20.listNum = 2
+                30.listNum = 2
+                40.listNum = 2
+                50.listNum = 2
+               stdWrap.noTrimWrap = |<div class="column-3 |">|
+            }		
+           renderObj{
+                10.columns_xs.cObject{
+                    value = {$plugin.lef_bootstrap_theme.columns}
+                    override.listNum = 2
+                }
+                11.columns_sm.cObject{
+                    data = register:columns_xs
+                    override.listNum = 2
+                }
+                12.columns_md.cObject{
+                    data = register:columns_sm
+                    override.listNum = 2
+                }
+                13.columns_lg.cObject{
+                    data = register:columns_md
+                    override.listNum = 2
+                }
+                14.columns_xl.cObject{
+                    data = register:columns_lg
+                    override.listNum = 2
+                }
+            }
+        }
+    }
+    
+    
+    #####################################
+    ## 4 columns
+    #####################################
+    4ColumnGrid < .3ColumnGrid 
+    4ColumnGrid {
+    	columns.3 < .columns.2
+        columns.3 {
+            prepend {
+                10.listNum = 3
+                20.listNum = 3
+                30.listNum = 3
+                40.listNum = 3
+                50.listNum = 3
+                stdWrap.noTrimWrap = |<div class="column-4 |">|
+            }	
+            renderObj{
+                10.columns_xs.cObject{
+                    value = {$plugin.lef_bootstrap_theme.columns}
+                    override.listNum = 3
+                }
+                11.columns_sm.cObject{
+                    data = register:columns_xs
+                    override.listNum = 3
+                }
+                12.columns_md.cObject{
+                    data = register:columns_sm
+                    override.listNum = 3
+                }
+                13.columns_lg.cObject{
+                    data = register:columns_md
+                    override.listNum = 3
+                }
+                14.columns_xl.cObject{
+                    data = register:columns_lg
+                    override.listNum = 3
+                }
+            }
+        }
+    }
+}
+
+tt_content.gridelements_pi1.20{
+    10.setup {
+        2ColumnGrid >
+        3ColumnGrid >
+        4ColumnGrid >
+        2ColumnGrid < lib.gridelements.2ColumnGrid
+        3ColumnGrid < lib.gridelements.3ColumnGrid
+        4ColumnGrid < lib.gridelements.4ColumnGrid
+    }
+}

@@ -1,0 +1,224 @@
+##################################
+## Handle Section frame width   ##
+##################################
+
+# tx_themes_variants
+# Variants available for each element
+#    alert-success = alert alert-success
+#    alert-info = alert alert-info
+#    alert-warning = alert alert-warning
+#    alert-danger = alert alert-danger
+
+#    wide-screen = jumbotron
+
+#    framed = well
+#    framed-small = well well-sm
+#    framed-large = well well-lg
+
+# Variants and section Frames width
+lib.responsiveImages.variants = LOAD_REGISTER
+lib.responsiveImages.variants {
+    width_xxs {
+        cObject = COA
+        cObject{
+            10 = TEXT
+            10.data = register:width_xxs
+            
+            # section frame
+            30 = CASE
+            30{
+                key.field = section_frame
+                default = TEXT
+                
+                # indent
+                10 < .default
+                10.value = {$plugin.lef_bootstrap_theme.frame.xs.indent} 
+                
+                # indent 33/66
+                11 < .default
+                11.value = {$plugin.lef_bootstrap_theme.frame.xs.indent3366} 
+                
+                # indent 33/66
+                12 < .11
+                12.value = {$plugin.lef_bootstrap_theme.frame.xs.indent6633} 
+                
+                20 < .10
+                20.value = {$plugin.lef_bootstrap_theme.frame.xs.frame1}
+                21 < .10
+                21.value = {$plugin.lef_bootstrap_theme.frame.xs.frame2}
+            }
+            
+            # Variants
+            # Alerts
+            50 = TEXT
+            50{
+                value =  {$plugin.lef_bootstrap_theme.variant.xs.alert}
+                wrap = -|
+                if{
+                    field = tx_themes_variants    
+                    isInList = alert-success
+                }
+            }
+            51 < .50
+            51.if.isInList = alert-info    
+            52 < .50
+            52.if.isInList = alert-warning
+            53 < .50
+            53.if.isInList = alert-danger
+            
+            # Well
+            60 < .50
+            60{
+                value    = {$plugin.lef_bootstrap_theme.variant.xs.framed}
+                if.isInList = framed
+            }
+            # Well-sm
+            70 < .50
+            70{
+                value    = {$plugin.lef_bootstrap_theme.variant.xs.framedSmall}
+                if.isInList = framed-small
+            }
+            # Well-lg
+            80 < .50
+            80{
+                value    = {$plugin.lef_bootstrap_theme.variant.xs.framedLarge}
+                if.isInList = framed-large
+            }
+            # Jumbotron
+            90 < .50
+            90{
+                value    = ({$plugin.lef_bootstrap_theme.variant.xs.wideScreen}/2)
+                if.isInList = wide-screen
+            }
+            
+        }
+        prioriCalc=1
+    }
+    
+    width_xs < .width_xxs
+    width_xs.cObject.10.data = register:width_xs
+    
+    width_sm < .width_xs
+    width_sm.cObject{
+        10.data = register:width_sm
+        30 {
+            10.override = {$plugin.lef_bootstrap_theme.frame.sm.indent} 
+            11.override = {$plugin.lef_bootstrap_theme.frame.sm.indent3366} 
+            12.override = {$plugin.lef_bootstrap_theme.frame.sm.indent6633} 
+            20.override = {$plugin.lef_bootstrap_theme.frame.sm.frame1}
+            21.override = {$plugin.lef_bootstrap_theme.frame.sm.frame2}
+        }
+        # Variants
+        # Alerts
+        50.override = {$plugin.lef_bootstrap_theme.variant.sm.alert}
+        51.override = {$plugin.lef_bootstrap_theme.variant.sm.alert}
+        52.override = {$plugin.lef_bootstrap_theme.variant.sm.alert}
+        53.override = {$plugin.lef_bootstrap_theme.variant.sm.alert}
+        # Well
+        60.override = {$plugin.lef_bootstrap_theme.variant.sm.framed}
+        # Well-sm
+        70.override = {$plugin.lef_bootstrap_theme.variant.sm.framedSmall}
+        80.override = {$plugin.lef_bootstrap_theme.variant.sm.framedLarge}
+        90.override = {$plugin.lef_bootstrap_theme.variant.sm.wideScreen}
+        
+    }
+    
+    width_md < .width_sm
+    width_md.cObject{
+        10.data = register:width_md
+        
+        30 {
+            10.override = {$plugin.lef_bootstrap_theme.frame.md.indent} 
+            11.override = {$plugin.lef_bootstrap_theme.frame.md.indent3366} 
+            12.override = {$plugin.lef_bootstrap_theme.frame.md.indent6633} 
+            20.override = {$plugin.lef_bootstrap_theme.frame.md.frame1}
+            21.override = {$plugin.lef_bootstrap_theme.frame.md.frame2}
+        }
+        
+        # Variants
+        # Alerts
+        50.override = {$plugin.lef_bootstrap_theme.variant.md.alert}
+        51.override = {$plugin.lef_bootstrap_theme.variant.md.alert}
+        52.override = {$plugin.lef_bootstrap_theme.variant.md.alert}
+        53.override = {$plugin.lef_bootstrap_theme.variant.md.alert}
+        # Well
+        60.override = {$plugin.lef_bootstrap_theme.variant.md.framed}
+        # Well-sm
+        70.override = {$plugin.lef_bootstrap_theme.variant.md.framedSmall}
+        80.override = {$plugin.lef_bootstrap_theme.variant.md.framedLarge}
+        90.override = {$plugin.lef_bootstrap_theme.variant.md.wideScreen}
+    }
+    width_lg < .width_md
+    width_lg.cObject{
+        10.data = register:width_lg
+        
+        30 {
+            10.override = {$plugin.lef_bootstrap_theme.frame.lg.indent} 
+            11.override = {$plugin.lef_bootstrap_theme.frame.lg.indent3366} 
+            12.override = {$plugin.lef_bootstrap_theme.frame.lg.indent6633} 
+            20.override = {$plugin.lef_bootstrap_theme.frame.lg.frame1}
+            21.override = {$plugin.lef_bootstrap_theme.frame.lg.frame2}
+        }
+        
+        # Variants
+        # Alerts
+        50.override = {$plugin.lef_bootstrap_theme.variant.lg.alert}
+        51.override = {$plugin.lef_bootstrap_theme.variant.lg.alert}
+        52.override = {$plugin.lef_bootstrap_theme.variant.lg.alert}
+        53.override = {$plugin.lef_bootstrap_theme.variant.lg.alert}
+        # Well
+        60.override = {$plugin.lef_bootstrap_theme.variant.lg.framed}
+        # Well-sm
+        70.override = {$plugin.lef_bootstrap_theme.variant.lg.framedSmall}
+        80.override = {$plugin.lef_bootstrap_theme.variant.lg.framedLarge}
+        90.override = {$plugin.lef_bootstrap_theme.variant.lg.wideScreen}
+    }
+    width_xl < .width_lg
+    width_xl.cObject{
+        10.data = register:width_xl
+        
+        30 {
+            10.override = {$plugin.lef_bootstrap_theme.frame.xl.indent} 
+            11.override = {$plugin.lef_bootstrap_theme.frame.xl.indent3366} 
+            12.override = {$plugin.lef_bootstrap_theme.frame.xl.indent6633} 
+            20.override = {$plugin.lef_bootstrap_theme.frame.xl.frame1}
+            21.override = {$plugin.lef_bootstrap_theme.frame.xl.frame2}
+        }
+        # Variants
+        # Alerts
+        50.override = {$plugin.lef_bootstrap_theme.variant.xl.alert}
+        51.override = {$plugin.lef_bootstrap_theme.variant.xl.alert}
+        52.override = {$plugin.lef_bootstrap_theme.variant.xl.alert}
+        53.override = {$plugin.lef_bootstrap_theme.variant.xl.alert}
+        # Well
+        60.override = {$plugin.lef_bootstrap_theme.variant.xl.framed}
+        # Well-sm
+        70.override = {$plugin.lef_bootstrap_theme.variant.xl.framedSmall}
+        80.override = {$plugin.lef_bootstrap_theme.variant.xl.framedLarge}
+        90.override = {$plugin.lef_bootstrap_theme.variant.xl.wideScreen}
+    }
+}
+
+
+lib.responsiveImages.restore = RESTORE_REGISTER
+
+
+tt_content {
+    gridelements_pi1.20{
+        5  = < lib.responsiveImages.variants 
+        
+        50 = < lib.responsiveImages.restore 
+    }
+    image{
+        5  = < lib.responsiveImages.variants 
+           7  < lib.responsiveImages.debug
+           7.10.value = IMAGE:
+        50 = < lib.responsiveImages.restore 
+    }
+    textpic{
+        5  = < lib.responsiveImages.variants 
+        7  < lib.responsiveImages.debug
+           7.10.value = TEXTPIC:
+        50 = < lib.responsiveImages.restore 
+    }
+}

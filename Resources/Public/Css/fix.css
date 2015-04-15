@@ -1,0 +1,67 @@
+/* enable responsivness of <picture> */
+.thumbnail>picture>img,.thumbnail a>picture>img,.carousel-inner>.item>picture>img,.carousel-inner>.item>a>picture>img{display:block;max-width:100%;height:auto}  
+.thumbnail>picture>img,.thumbnail a>picture>img{margin-left:auto;margin-right:auto}
+.image>picture>img,.image a>picture>img{display:block;max-width:100%;height:auto}
+@media (max-width:767px){
+	.image>picture>img,
+	.image a>picture>img{margin:0 auto}
+}
+/* fix 50% width for images in text and gutter width */
+div.csc-textpic-intext-left .csc-textpic-imagewrap,  
+div.csc-textpic-intext-left-nowrap .csc-textpic-imagewrap, 
+div.csc-textpic-beside-left  .csc-textpic-imagewrap {padding:0; margin:0;}
+div.csc-textpic-intext-right-nowrap .csc-textpic-imagewrap, 
+div.csc-textpic-intext-right .csc-textpic-imagewrap, 
+div.csc-textpic-beside-right .csc-textpic-imagewrap {padding:0; margin:0;}
+
+/* ensure responsiveness of images */
+.csc-textpic-responsive img,
+.csc-textpic-responsive picture {
+	max-width:100%;
+}
+
+@media (min-width:480px){
+/* not needed since images are at the max side 
+div.csc-textpic-intext .csc-textpic-imagewrap, 
+div.csc-textpic-beside .csc-textpic-imagewrap { max-width:50%;}
+*/
+/*max-width: 50%;*/
+div.csc-textpic-intext-left-nowrap  .csc-textpic-imagewrap,
+div.csc-textpic-intext-left  .csc-textpic-imagewrap, 
+div.csc-textpic-beside-left  .csc-textpic-imagewrap { margin-right: 15px; padding-right:15px;}
+div.csc-textpic-intext-right-nowrap .csc-textpic-imagewrap, 
+div.csc-textpic-intext-right .csc-textpic-imagewrap, 
+div.csc-textpic-beside-right .csc-textpic-imagewrap { margin-left: 15px; padding-left:15px;}
+}
+
+/* ensure that .image-wrap max-width:50% donsen t apply on xsmall devices */
+@media (max-width:479px){
+div.csc-textpic-beside .csc-textpic-imagewrap { float: none;}
+div.csc-textpic-intext .csc-textpic-imagewrap, 
+div.csc-textpic-beside .csc-textpic-imagewrap { width:100%;}
+}
+
+/* ensure clickable items are not hidden by image center divs */
+div.csc-textpic-center-outer {width:50%;}
+div.csc-textpic-center .csc-textpic-center-inner,
+div.csc-textpic-center-inner {width:200%; right: -100%;}
+
+/* make <picture> opaque with preload mode */
+picture,
+img.lazyload.preload{
+opacity:1 !important;
+}
+
+/* fix for borders : should not be applied to img, but container to get right content size */
+div.csc-textpic-border div.csc-textpic-imagewrap img {
+	border:0;
+	padding:0;
+}
+div.csc-textpic-imagecolumn, td.csc-textpic-imagecolumn .csc-textpic-image{
+	margin-right:0;
+}
+/* Setup this one in less with right border and padding. */
+div.csc-textpic-border div.csc-textpic-imagewrap .csc-textpic-image{
+	border: 1px solid silver;
+	padding: 4px;
+}

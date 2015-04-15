@@ -1,0 +1,4 @@
+mod.tx_themes {
+	constantCategoriesToShow := addToList(responsive images, grid system, variants)
+}
+#, Theme: Bootstrap settings

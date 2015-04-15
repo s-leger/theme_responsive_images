@@ -1,0 +1,740 @@
+#####################################
+#### LEF Bootstrap 3.x Grids     ####
+#####################################
+
+
+
+lib.gridelements{
+    
+    #####################################
+    ## Framework agnostic columns class  
+    #####################################
+    
+    prependColumns = CASE
+    prependColumns {
+        key.field = flexform_mode_advanced
+        
+        # simple mode
+        0 = COA
+        0{
+            10 = TEXT
+            10 {
+                field = flexform_column_widths_md
+                required = 1
+                listNum = 0
+                listNum.splitChar = #
+                wrap = ,medium-width-|
+            }
+            20 < .10
+            20{
+                field = flexform_column_widths_sm
+                wrap = ,small-width-|
+            }
+            30 < .10
+            30{
+                field = flexform_column_widths_xs
+                wrap = ,extrasmall-width-|
+            }
+            40 < .10
+            40{
+                field = flexform_column_widths_lg
+                wrap = ,large-width-|
+            }
+        }
+        
+        # advanced mode
+        1 = COA
+        1{
+            # width
+            10 = TEXT
+            10 {
+                field = flexform_width_column_xs_1
+                wrap = ,extrasmall-width-|
+                required = 1
+                if.isTrue.field = flexform_xsmall
+            }
+            
+            11 = TEXT
+            11 {
+                field = flexform_width_column_sm_1
+                wrap = ,small-width-|
+                required = 1
+                if.isTrue.field = flexform_small
+            }
+            
+            12 = TEXT
+            12 {
+                field = flexform_width_column_md_1
+                wrap = ,medium-width-|
+                required = 1
+                if.isTrue.field = flexform_medium
+            }
+            
+            13 = TEXT
+            13 {
+                field = flexform_width_column_lg_1
+                wrap = ,large-width-|
+                required = 1
+                if.isTrue.field = flexform_large
+            }
+            
+            # offset
+            20 = TEXT
+            20 {
+                field = flexform_offset_column_xs_1
+                wrap = ,extrasmall-offset-|
+                required = 1
+                if.isTrue.field = flexform_xsmall
+            }
+            
+            21 = TEXT
+            21 {
+                field = flexform_offset_column_sm_1
+                wrap = ,small-offset-|
+                required = 1
+                if.isTrue.field = flexform_small
+            }
+            
+            22 = TEXT
+            22 {
+                field = flexform_offset_column_md_1
+                wrap = ,medium-offset-|
+                required = 1
+                if.isTrue.field = flexform_medium
+            }
+            
+            23 = TEXT
+            23 {
+                field = flexform_offset_column_lg_1
+                wrap = ,large-offset-|
+                required = 1
+                if.isTrue.field = flexform_large
+            }
+            
+            # push
+            30 = TEXT
+            30 {
+                field = flexform_push_column_xs_1
+                wrap = ,extrasmall-push-|
+                required = 1
+                if.isTrue.field = flexform_xsmall
+            }
+            
+            31 = TEXT
+            31 {
+                field = flexform_push_column_sm_1
+                wrap = ,small-push-|
+                required = 1
+                if.isTrue.field = flexform_small
+            }
+            
+            32 = TEXT
+            32 {
+                field = flexform_push_column_md_1
+                wrap = ,medium-push-|
+                required = 1
+                if.isTrue.field = flexform_medium
+            }
+            
+            33 = TEXT
+            33 {
+                field = flexform_push_column_lg_1
+                wrap = ,large-push-|
+                required = 1
+                if.isTrue.field = flexform_large
+            }
+            
+            # pull
+            40 = TEXT
+            40 {
+                field = flexform_pull_column_xs_1
+                wrap = ,extrasmall-pull-|
+                required = 1
+                if.isTrue.field = flexform_xsmall
+            }
+            
+            41 = TEXT
+            41 {
+                field = flexform_pull_column_sm_1
+                wrap = ,small-pull-|
+                required = 1
+                if.isTrue.field = flexform_small
+            }
+            
+            42 = TEXT
+            42 {
+                field = flexform_pull_column_md_1
+                wrap = ,medium-pull-|
+                required = 1
+                if.isTrue.field = flexform_medium
+            }
+            
+            43 = TEXT
+            43 {
+                field = flexform_pull_column_lg_1
+                wrap = ,large-pull-|
+                required = 1
+                if.isTrue.field = flexform_large
+            }
+            
+        }
+        
+        stdWrap.stdWrap.postUserFunc = KayStrobach\Themes\Frontend\CssClassMapper->mapGenericToFramework
+        stdWrap.stdWrap.postUserFunc {
+            responsiveColumnMapping =< lib.content.cssMap.responsive.column
+        }
+        stdWrap.ifEmpty = {$lib.content.cssMap.responsive.column.default-2-column}
+        stdWrap.noTrimWrap = |<div class="column-1 |">|
+    }
+    
+    #####################################
+    ## Register columns width  
+    #####################################
+    
+    renderColumns = COA
+    renderColumns {
+        
+        # register number of columns
+        10 = CASE
+        10{
+            key.field = parentgrid_flexform_mode_advanced
+            
+            # simple mode
+            0 = COA
+            0 {
+                10 = LOAD_REGISTER
+                10 {
+                    columns_xs {
+                        cObject = TEXT
+                        cObject{
+                            value = {$plugin.lef_bootstrap_theme.columns}
+                            override{
+                                field = parentgrid_flexform_column_widths_xs
+                                required = 1
+                                listNum = 0
+                                listNum.splitChar = #
+                            }
+                        }
+                    }
+                }   
+                
+                11 = LOAD_REGISTER
+                11 {
+                    columns_sm{
+                        cObject = TEXT
+                        cObject {
+                            data = register:columns_xs
+                            override{
+                                field = parentgrid_flexform_column_widths_sm
+                                required = 1
+                                listNum = 0
+                                listNum.splitChar = #
+                            }
+                        }
+                    }
+                }
+                12 = LOAD_REGISTER
+                12 {
+                    columns_md{
+                        cObject = TEXT
+                        cObject {
+                            data = register:columns_sm
+                            override{
+                                field = parentgrid_flexform_column_widths_md
+                                required = 1
+                                listNum = 0
+                                listNum.splitChar = #
+                            }
+                        }
+                    }
+                }
+                13 = LOAD_REGISTER
+                13 {
+                    columns_lg{
+                        cObject = TEXT
+                        cObject {
+                            data = register:columns_md
+                            override{
+                                field = parentgrid_flexform_column_widths_lg
+                                required = 1
+                                listNum = 0
+                                listNum.splitChar = #
+                            }
+                        }
+                    }
+                }
+                
+            }   
+            
+            
+            # advanced mode
+            1 = COA
+            1 {
+                
+                10 = LOAD_REGISTER
+                10 {
+                    columns_xs {
+                        cObject = TEXT
+                        cObject{
+                            value = {$plugin.lef_bootstrap_theme.columns}
+                            override.field = parentgrid_flexform_width_column_xs_1
+                            override.if.isTrue.field = parentgrid_flexform_xsmall
+                        }
+                    }
+                }
+                11 = LOAD_REGISTER
+                11 {
+                    columns_sm{
+                        cObject = TEXT
+                        cObject {
+                            data = register:columns_xs
+                            override.field = parentgrid_flexform_width_column_sm_1
+                            override.if.isTrue.field = parentgrid_flexform_small
+                        }
+                    }
+                }
+                12 = LOAD_REGISTER
+                12 {
+                    columns_md{
+                        cObject = TEXT
+                        cObject {
+                            data = register:columns_sm
+                            override.field = parentgrid_flexform_width_column_md_1
+                            override.if.isTrue.field = parentgrid_flexform_medium
+                        }
+                    }
+                }
+                13 = LOAD_REGISTER
+                13 {
+                    columns_lg{
+                        cObject = TEXT
+                        cObject {
+                            data = register:columns_md
+                            override.field = parentgrid_flexform_width_column_lg_1
+                            override.if.isTrue.field = parentgrid_flexform_large
+                        }
+                    }
+                }
+                
+            }
+        }
+        # register real width of columns
+        20 = LOAD_REGISTER
+        20 {
+            width_xxs {
+                cObject = COA
+                cObject{
+                    20 = TEXT
+                    20.data =  register:width_xxs
+                    30 = TEXT
+                    30.value = /{$plugin.lef_bootstrap_theme.columns}*
+                    40 = TEXT
+                    40.data = register:columns_xs
+                }
+                prioriCalc=1
+            }
+            width_xs < .width_xxs
+            width_xs.cObject {
+                20.data = register:width_xs
+                40.data = register:columns_xs
+            }
+            width_sm < .width_xxs
+            width_sm.cObject{
+                20.data = register:width_sm
+                40.data = register:columns_sm
+            }
+            width_md < .width_xxs
+            width_md.cObject{
+                20.data = register:width_md
+                40.data = register:columns_md
+            }
+            width_lg < .width_xxs
+            width_lg.cObject{
+                20.data = register:width_lg
+                40.data = register:columns_lg
+            }
+        }
+        
+        30 = < tt_content
+        
+        # 10-13
+        40 = RESTORE_REGISTER
+        41 = RESTORE_REGISTER
+        42 = RESTORE_REGISTER
+        43 = RESTORE_REGISTER
+        # 20
+        50 = RESTORE_REGISTER
+        
+        
+    }
+    
+    #####################################
+    ## 1 column
+    #####################################
+    1ColumnGrid < .defaultGridSetup
+    1ColumnGrid {
+        
+        innerWrap.cObject.default.20 {
+            40.postUserFunc {
+                responsiveColumnMapping >
+            }
+            50 = TEXT
+            50.value = {$lib.content.cssMap.responsive.row.default-row}
+            50.noTrimWrap = | ||
+        }
+        
+        columns.0 {
+            
+            prepend   < lib.gridelements.prependColumns
+            renderObj < lib.gridelements.renderColumns
+            
+            wrap.cObject = COA
+            wrap.cObject {
+                10 = TEXT
+                10.value = |</div>
+                
+                # clearfix between columns
+                20 = COA
+                20 {
+                    10 = TEXT
+                    10 {
+                        value = visible-xs-block
+                        if.isTrue.field = flexform_clear_column_xs_1
+                        wrap = ,|
+                        required = 1
+                    }
+                    20 < .10
+                    20 {
+                        value = visible-sm-block
+                        if.isTrue.field = flexform_clear_column_sm_1
+                    }
+                    30 < .10
+                    30 {
+                        value = visible-md-block
+                        if.isTrue.field = flexform_clear_column_md_1
+                    }
+                    stdWrap{
+                        stdWrap.postUserFunc = KayStrobach\Themes\Frontend\CssClassMapper->mapGenericToFramework
+                        stdWrap.postUserFunc {
+                            responsiveColumnMapping >
+                        }
+                        required = 1
+                        wrap = <div class="clearfix |"></div>
+                    }
+                }
+            }
+            
+        }
+    }
+    
+    
+    #####################################
+    ## 2 columns
+    #####################################
+    
+    2ColumnGrid < .1ColumnGrid
+    2ColumnGrid {
+        columns.1 < .columns.0
+        columns.1 {
+            prepend {
+                # simple mode
+                0{
+                    10.listNum = 1
+                    20.listNum = 1
+                    30.listNum = 1
+                    40.listNum = 1
+                }
+                # advanced mode 
+                1{
+                    10.field = flexform_width_column_xs_2
+                    11.field = flexform_width_column_sm_2
+                    12.field = flexform_width_column_md_2
+                    13.field = flexform_width_column_lg_2
+                    20.field = flexform_offset_column_xs_2
+                    21.field = flexform_offset_column_sm_2
+                    22.field = flexform_offset_column_md_2
+                    23.field = flexform_offset_column_lg_2
+                    30.field = flexform_push_column_xs_2
+                    31.field = flexform_push_column_sm_2
+                    32.field = flexform_push_column_md_2
+                    33.field = flexform_push_column_lg_2
+                    40.field = flexform_pull_column_xs_2
+                    41.field = flexform_pull_column_sm_2
+                    42.field = flexform_pull_column_md_2
+                    43.field = flexform_pull_column_lg_2
+                    
+                }   
+                
+                stdWrap.noTrimWrap = |<div class="column-2 |">|
+            }
+            renderObj{
+                10{
+                    # simple mode
+                    0{
+                        10.columns_xs.cObject{
+                            value = {$plugin.lef_bootstrap_theme.columns}
+                            override.listNum = 1
+                        }
+                        11.columns_sm.cObject{
+                            data = register:columns_xs
+                            override.listNum = 1
+                        }
+                        12.columns_md.cObject{
+                            data = register:columns_sm
+                            override.listNum = 1
+                        }
+                        13.columns_lg.cObject{
+                            data = register:columns_md
+                            override.listNum = 1
+                        }
+                    }
+                    
+                    # advanced mode
+                    1 {
+                        10{
+                            columns_xs.cObject{
+                                value = {$plugin.lef_bootstrap_theme.columns}
+                                override.field = parentgrid_flexform_width_column_xs_2
+                            }
+                        }
+                        11 {
+                            columns_sm.cObject{
+                                data = register:columns_xs
+                                override.field = parentgrid_flexform_width_column_sm_2
+                            }
+                        }
+                        12 {
+                            columns_md.cObject{
+                                data = register:columns_sm
+                                override.field = parentgrid_flexform_width_column_md_2
+                            }
+                        }
+                        13 {
+                            columns_lg.cObject{
+                                data = register:columns_md
+                                override.field = parentgrid_flexform_width_column_lg_2
+                            }
+                        }
+                    }
+                }   
+            }   
+            wrap.cObject {
+                20.10.if.isTrue.field = flexform_clear_column_xs_2
+                20.20.if.isTrue.field = flexform_clear_column_sm_2
+                20.30.if.isTrue.field = flexform_clear_column_md_2
+            }
+        }
+    }
+    
+    
+    #####################################
+    ## 3 columns
+    #####################################
+    
+    3ColumnGrid < .2ColumnGrid
+    3ColumnGrid {
+        columns.2 < .columns.0
+        columns.2 {
+            prepend {
+                # simple mode
+                0{
+                    10.listNum = 2
+                    20.listNum = 2
+                    30.listNum = 2
+                    40.listNum = 2
+                }
+                # advanced mode 
+                1{
+                    10.field = flexform_width_column_xs_3
+                    11.field = flexform_width_column_sm_3
+                    12.field = flexform_width_column_md_3
+                    13.field = flexform_width_column_lg_3
+                    20.field = flexform_offset_column_xs_3
+                    21.field = flexform_offset_column_sm_3
+                    22.field = flexform_offset_column_md_3
+                    23.field = flexform_offset_column_lg_3
+                    30.field = flexform_push_column_xs_3
+                    31.field = flexform_push_column_sm_3
+                    32.field = flexform_push_column_md_3
+                    33.field = flexform_push_column_lg_3
+                    40.field = flexform_pull_column_xs_3
+                    41.field = flexform_pull_column_sm_3
+                    42.field = flexform_pull_column_md_3
+                    43.field = flexform_pull_column_lg_3
+                    
+                }   
+                
+                stdWrap.noTrimWrap = |<div class="column-3 |">|
+            }
+            renderObj{
+                10{
+                    # simple mode
+                    0{
+                        10.columns_xs.cObject{
+                            value = {$plugin.lef_bootstrap_theme.columns}
+                            override.listNum = 2
+                        }
+                        11.columns_sm.cObject{
+                            data = register:columns_xs
+                            override.listNum = 2
+                        }
+                        12.columns_md.cObject{
+                            data = register:columns_sm
+                            override.listNum = 2
+                        }
+                        13.columns_lg.cObject{
+                            data = register:columns_md
+                            override.listNum = 2
+                        }
+                    }
+                    
+                    # advanced mode
+                    1 {
+                        10{
+                            columns_xs.cObject{
+                                value = {$plugin.lef_bootstrap_theme.columns}
+                                override.field = parentgrid_flexform_width_column_xs_3
+                            }
+                        }
+                        11 {
+                            columns_sm.cObject{
+                                data = register:columns_xs
+                                override.field = parentgrid_flexform_width_column_sm_3
+                            }
+                        }
+                        12 {
+                            columns_md.cObject{
+                                data = register:columns_sm
+                                override.field = parentgrid_flexform_width_column_md_3
+                            }
+                        }
+                        13 {
+                            columns_lg.cObject{
+                                data = register:columns_md
+                                override.field = parentgrid_flexform_width_column_lg_3
+                            }
+                        }
+                    }
+                }   
+            }   
+            wrap.cObject {
+                20.10.if.isTrue.field = flexform_clear_column_xs_3
+                20.20.if.isTrue.field = flexform_clear_column_sm_3
+                20.30.if.isTrue.field = flexform_clear_column_md_3
+            }
+        }
+    }
+    
+    
+    #####################################
+    ## 4 columns
+    #####################################
+    
+    4ColumnGrid < .3ColumnGrid
+    4ColumnGrid {
+        columns.3 < .columns.0
+        columns.3 {
+            prepend {
+                # simple mode
+                0{
+                    10.listNum = 3
+                    20.listNum = 3
+                    30.listNum = 3
+                    40.listNum = 3
+                }
+                # advanced mode 
+                1{
+                    10.field = flexform_width_column_xs_4
+                    11.field = flexform_width_column_sm_4
+                    12.field = flexform_width_column_md_4
+                    13.field = flexform_width_column_lg_4
+                    20.field = flexform_offset_column_xs_4
+                    21.field = flexform_offset_column_sm_4
+                    22.field = flexform_offset_column_md_4
+                    23.field = flexform_offset_column_lg_4
+                    30.field = flexform_push_column_xs_4
+                    31.field = flexform_push_column_sm_4
+                    32.field = flexform_push_column_md_4
+                    33.field = flexform_push_column_lg_4
+                    40.field = flexform_pull_column_xs_4
+                    41.field = flexform_pull_column_sm_4
+                    42.field = flexform_pull_column_md_4
+                    43.field = flexform_pull_column_lg_4
+                     
+                }   
+                
+                stdWrap.noTrimWrap = |<div class="column-4 |">|
+            }
+            renderObj{
+                10{
+                    # simple mode
+                    0{
+                        10.columns_xs.cObject{
+                            value = {$plugin.lef_bootstrap_theme.columns}
+                            override.listNum = 3
+                        }
+                        11.columns_sm.cObject{
+                            data = register:columns_xs
+                            override.listNum = 3
+                        }
+                        12.columns_md.cObject{
+                            data = register:columns_sm
+                            override.listNum = 3
+                        }
+                        13.columns_lg.cObject{
+                            data = register:columns_md
+                            override.listNum = 3
+                        }
+                    }
+                    
+                    # advanced mode
+                    1 {
+                        10{
+                            columns_xs.cObject{
+                                value = {$plugin.lef_bootstrap_theme.columns}
+                                override.field = parentgrid_flexform_width_column_xs_4
+                            }
+                        }
+                        11 {
+                            columns_sm.cObject{
+                                data = register:columns_xs
+                                override.field = parentgrid_flexform_width_column_sm_4
+                            }
+                        }
+                        12 {
+                            columns_md.cObject{
+                                data = register:columns_sm
+                                override.field = parentgrid_flexform_width_column_md_4
+                            }
+                        }
+                        13 {
+                            columns_lg.cObject{
+                                data = register:columns_md
+                                override.field = parentgrid_flexform_width_column_lg_4
+                            }
+                        }
+                    }
+                }   
+            }   
+            wrap.cObject {
+                20.10.if.isTrue.field = flexform_clear_column_xs_4
+                20.20.if.isTrue.field = flexform_clear_column_sm_4
+                20.30.if.isTrue.field = flexform_clear_column_md_4
+            }
+        }
+    }
+    
+    
+}    
+
+
+tt_content.gridelements_pi1.20{
+
+    10.setup {
+    #   1ColumnGrid < lib.gridelements.1ColumnGrid
+        2ColumnGrid < lib.gridelements.2ColumnGrid
+        3ColumnGrid < lib.gridelements.3ColumnGrid
+        4ColumnGrid < lib.gridelements.4ColumnGrid
+    }
+
+}

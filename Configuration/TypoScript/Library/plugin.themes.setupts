@@ -1,0 +1,14 @@
+
+plugin.tx_themes {
+	view {
+		templateRootPaths {
+			500 = EXT:lef_bootstrap_theme/Resources/Private/Templates/
+		}
+		partialRootPaths {
+			500 = EXT:lef_bootstrap_theme/Resources/Private/Partials/
+		}
+		layoutRootPaths {
+			500 = EXT:lef_bootstrap_theme/Resources/Private/Layouts/
+		}
+	}
+}

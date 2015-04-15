@@ -1,0 +1,161 @@
+#####################################
+## Initialise number of columns
+#####################################
+
+# Available width of template layout
+
+# template vars : 
+# @ integer number of columns : col_xs, sm, md, lg, xl
+# @ boolean fluid container   : fluid_xs, sm, md, lg, xl 
+
+# Behiavour of breakpoints
+# fluid -> make image size the screen size max for the breakpoint
+# fixed -> make image size the width of container for current breakpoint
+
+lib.responsiveImages.template = LOAD_REGISTER
+lib.responsiveImages.template {
+    
+    # number of columns
+    
+    columns_xs = {$plugin.lef_bootstrap_theme.columns}
+    columns_sm < .columns_xs
+    columns_md < .columns_xs
+    columns_lg < .columns_xs
+    columns_xl < .columns_xl
+    
+    width_xxs {
+        cObject = COA
+        cObject{
+            10 = COA
+            10{
+                10 = TEXT
+                10.value = (
+                20 = TEXT
+                20.value = {$plugin.lef_bootstrap_theme.container.xs}
+                30 = TEXT
+                30.value = +{$plugin.lef_bootstrap_theme.gutter})/{$plugin.lef_bootstrap_theme.columns}*
+                40 = TEXT
+                40 {
+                    field = col_xs
+                    ifEmpty = {$plugin.lef_bootstrap_theme.columns}
+                }
+            }
+            override < .10
+            override {
+                20.value = {$plugin.lef_bootstrap_theme.screen.xs}
+                30.value = /{$plugin.lef_bootstrap_theme.columns}*
+                if{
+                    value = 1
+                    isFalse = 1
+                    negate = 1
+                }
+            }
+        }
+        prioriCalc = 1
+    }
+    
+    # Available width
+    
+    width_xs  < .width_xxs
+    width_xs.cObject {
+        10{
+            20.value = {$plugin.lef_bootstrap_theme.container.xs}
+            40.field = col_xs
+        }    
+        override < .10
+        override{
+            20.value = {$plugin.lef_bootstrap_theme.screen.sm}
+            if{
+                isLessThan.field = fluid_xs 
+                isFalse = {$plugin.lef_bootstrap_theme.fluid.xs}
+            }
+        }
+    }
+    width_sm < .width_xs
+    width_sm.cObject {
+        10{
+            20.value = {$plugin.lef_bootstrap_theme.container.sm}
+            40.field = col_sm
+        }
+        override < .10
+        override{
+            20.value = {$plugin.lef_bootstrap_theme.screen.md}
+            if {
+                isLessThan.field = fluid_sm 
+                isFalse = {$plugin.lef_bootstrap_theme.fluid.sm}    
+            }
+        }    
+        
+        
+    }    
+    width_md < .width_xs
+    width_md.cObject {
+        10{
+            20.value = {$plugin.lef_bootstrap_theme.container.md}
+            40.field = col_md
+        }    
+        override < .10
+        override {
+            20.value= {$plugin.lef_bootstrap_theme.screen.lg}
+            if {
+                isLessThan.field = fluid_md 
+                isFalse = {$plugin.lef_bootstrap_theme.fluid.md}
+            }   
+        }
+        
+    }
+    width_lg < .width_xs
+    width_lg.cObject {
+        10{
+            20.value = {$plugin.lef_bootstrap_theme.container.lg}
+            40.field = col_lg    
+        }
+        override < .10   
+        override {
+            20.value = {$plugin.lef_bootstrap_theme.screen.xl}
+            if {
+                isLessThan.field = fluid_lg 
+                isFalse = {$plugin.lef_bootstrap_theme.fluid.lg}
+            }
+        }   
+    }
+    width_xl < .width_xs
+    width_xl.cObject {
+        10{
+            20.value = {$plugin.lef_bootstrap_theme.container.xl}
+            40.field = col_xl
+        }
+        override < .10 
+        override {
+            20.value = {$plugin.lef_bootstrap_theme.screen.xxl}
+            if {
+                isLessThan.field = fluid_xl 
+                isFalse = {$plugin.lef_bootstrap_theme.fluid.xl}
+            }
+        }
+        
+    }
+    
+}
+
+# Restore registers
+lib.responsiveImages.restore = RESTORE_REGISTER
+
+lib.content.main {
+    10 = < lib.responsiveImages.template
+    
+    15 < lib.responsiveImages.debug
+    15.10.value = Template:
+    
+    100 = < lib.responsiveImages.restore
+}
+
+lib.content.feature{
+    10  = < lib.responsiveImages.template 
+    100 = < lib.responsiveImages.restore
+}
+
+lib.content.extended{
+    10  = < lib.responsiveImages.template 
+    100 = < lib.responsiveImages.restore
+}

@@ -1,0 +1,150 @@
+
+### Handle gridelements columns and container behiavour
+
+lib.responsiveImages{
+    
+    # parse Flexform width classes
+    
+    parseWidthClass{
+        extralarge = TEXT
+        extralarge{
+            field = tx_themes_columnsettings
+            stdWrap{
+                intval = 1
+                stdWrap.replacement.10 {            
+                    search = #extralarge-width-([0-9]+)#i
+                    replace = \1
+                    useRegExp = 1
+                }
+            }
+        }
+        large     < .extralarge 
+        large.stdWrap.stdWrap.replacement.10.search = #large-width-([0-9]+)#i
+        medium     < .extralarge 
+        medium.stdWrap.stdWrap.replacement.10.search = #medium-width-([0-9]+)#i
+        small        < .extralarge 
+        small.stdWrap.stdWrap.replacement.10.search = #small-width-([0-9]+)#i
+        extrasmall < .extralarge 
+        extrasmall.stdWrap.stdWrap.replacement.10.search = #extrasmall-width-([0-9]+)#i
+    }
+    
+    
+    columns {
+        registerWidth = COA
+        registerWidth {
+            
+            # Number of columns : 5 registers to propagate from lower to upper
+            
+            10 = LOAD_REGISTER
+            10 {
+                columns_xs = {$plugin.lef_bootstrap_theme.columns}
+                columns_xs.override < lib.responsiveImages.parseWidthClass.extrasmall
+            }
+            11 = LOAD_REGISTER
+            11 {
+                columns_sm.data = register:columns_xs
+                columns_sm.override < lib.responsiveImages.parseWidthClass.small
+            }
+            12 = LOAD_REGISTER
+            12 {
+                columns_md.data = register:columns_sm
+                columns_md.override < lib.responsiveImages.parseWidthClass.medium
+            }
+            13 = LOAD_REGISTER
+            13 {
+                columns_lg.data = register:columns_md
+                columns_lg.override < lib.responsiveImages.parseWidthClass.large
+            }
+            14 = LOAD_REGISTER
+            14 {
+                columns_xl.data = register:columns_lg
+                columns_xl.override < lib.responsiveImages.parseWidthClass.extralarge
+            }    
+            
+            
+            20 = LOAD_REGISTER
+            20 {
+                
+                # Column width 
+                width_xxs {
+                    cObject = COA
+                    cObject{
+                        20 = TEXT
+                        20.data = register:fixed_xxs
+                        30 = TEXT
+                        30.value = /{$plugin.lef_bootstrap_theme.columns}*
+                        40 = TEXT
+                        40.data = register:columns_xs
+                        stdWrap{
+                            # handle .container behaviour
+                            override = {$plugin.lef_bootstrap_theme.container.xs}
+                            override.if  {
+                                value.field = tx_themes_behaviour
+                                isInList = container    
+                            }
+                        }
+                    }
+                    prioriCalc = 1
+                }
+                
+                # Compute columns width
+                # handle .container behiavour
+                # reset width to $.container.xx property
+                # No way to get back from fixed to fluid 
+                
+                width_xs < .width_xxs
+                width_xs.cObject {
+                    20.data = register:width_xs
+                    40.data = register:columns_xs
+                    stdWrap.override = {$plugin.lef_bootstrap_theme.container.xs}
+                }
+                width_sm < .width_xxs
+                width_sm.cObject { 
+                    20.data = register:width_sm
+                    40.data = register:columns_sm
+                    stdWrap.override = {$plugin.lef_bootstrap_theme.container.sm}
+                }
+                width_md < .width_xxs
+                width_md.cObject {
+                    20.data = register:width_md
+                    40.data = register:columns_md
+                    stdWrap.override = {$plugin.lef_bootstrap_theme.container.md}
+                }
+                width_lg < .width_xxs
+                width_lg.cObject {
+                    20.data = register:width_lg
+                    40.data = register:columns_lg
+                    stdWrap.override = {$plugin.lef_bootstrap_theme.container.lg}
+                }
+                width_xl < .width_xxs
+                width_xl.cObject {
+                    20.data = register:width_xl
+                    40.data = register:columns_xl
+                    stdWrap.override = {$plugin.lef_bootstrap_theme.container.xl}
+                }
+            }
+            
+        }
+        restoreWidth = COA
+        restoreWidth{
+            # 10-13
+            10 = RESTORE_REGISTER
+            11 = RESTORE_REGISTER
+            12 = RESTORE_REGISTER
+            13 = RESTORE_REGISTER
+            14 = RESTORE_REGISTER
+            # 20
+            20 = RESTORE_REGISTER
+        }
+    }
+    
+}   
+
+tt_content.gridelements_pi1.20 {
+    6  = < lib.responsiveImages.columns.registerWidth
+    
+    7 < lib.responsiveImages.debug
+    7.10.value = Columns:
+    
+    14 = < lib.responsiveImages.columns.restoreWidth 
+}

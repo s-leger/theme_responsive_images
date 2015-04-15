@@ -1,0 +1,92 @@
+
+# alter multi-columns layout of images
+# inspired by bootstrap_package
+
+lib.responsiveImages.makeRowWrap = COA
+lib.responsiveImages.makeRowWrap {
+    5 = TEXT
+    5.value = <div class=" 
+    
+    10 = TEXT
+    10.value = csc-textpic-imagerow
+    10.stdWrap.noTrimWrap = || |
+    
+    20 =TEXT
+    20{
+    	if.isTrue = {$plugin.lef_bootstrap_theme.enable.imageColumnsAdaptive}
+    	value = default-row,
+     	stdWrap.postUserFunc = KayStrobach\Themes\Frontend\CssClassMapper->mapGenericToFramework
+     	stdWrap.postUserFunc {
+            responsiveRowMapping =< lib.content.cssMap.responsive.row
+	}
+    } 
+    30 = TEXT 
+    30.value = ">|</div>
+    
+}
+
+tt_content.image.20 {
+
+    rendering{
+    
+        noCaption {
+            rowStdWrap.wrap >	
+            rowStdWrap.wrap.cObject < lib.responsiveImages.makeRowWrap
+            lastRowStdWrap.wrap >
+            lastRowStdWrap.wrap < .rowStdWrap.wrap
+            lastRowStdWrap.wrap.cObject.10.value = csc-textpic-imagerow csc-textpic-imagerow-last
+            noRowsStdWrap.wrap >
+            noRowsStdWrap.wrap < .rowStdWrap.wrap
+            noRowsStdWrap.wrap.cObject.10.value = csc-textpic-imagerow csc-textpic-imagerow-none
+        }
+        
+        splitCaption{
+            rowStdWrap.wrap >	
+  	    rowStdWrap.wrap.cObject < lib.responsiveImages.makeRowWrap
+            lastRowStdWrap.wrap >
+            lastRowStdWrap.wrap < .rowStdWrap.wrap
+            lastRowStdWrap.wrap.cObject.10.value = csc-textpic-imagerow csc-textpic-imagerow-last
+            noRowsStdWrap.wrap >
+            noRowsStdWrap.wrap < .rowStdWrap.wrap
+            noRowsStdWrap.wrap.cObject.10.value = csc-textpic-imagerow csc-textpic-imagerow-none
+       }
+    }
+    
+    addClassesCol.ifEmpty =
+    addClassesCol.override.cObject = COA
+    addClassesCol.override.cObject {
+    	
+    	stdWrap.if.isTrue = {$plugin.lef_bootstrap_theme.enable.imageColumnsAdaptive}
+        
+        10 = CASE
+        10 {
+            key.field = imagecols
+            
+            default = TEXT
+            default.value = medium-width-12
+            
+            2 < .default
+            2.value = medium-width-6
+            
+            3 < .default
+            3.value = medium-width-4,small-width-4,extrasmall-width-4
+            
+            4 < .default
+            4.value = medium-width-3,small-width-3,extrasmall-width-6
+            
+            6 < .default
+            6.value = medium-width-2,small-width-2,extrasmall-width-4
+            
+            stdWrap.postUserFunc = KayStrobach\Themes\Frontend\CssClassMapper->mapGenericToFramework
+            stdWrap.postUserFunc {
+                responsiveColumnMapping =< lib.content.cssMap.responsive.column
+            }
+        }
+    }
+    
+    addClassesCol.override =
+    addClassesCol.override.if {
+        isGreaterThan.field = imagecols
+        value = 1
+    }
+}

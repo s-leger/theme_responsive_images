@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file source-language="en" datatype="plaintext" original="messages" date="2013-09-19T09:11:39Z" product-name="themes_gridelements">
+        <header/>
+        <body>
+      <trans-unit id="sheet.md" xml:space="preserve">
+        <source>Medium</source>
+      </trans-unit>
+            <trans-unit id="sheet.sm" xml:space="preserve">
+        <source>Small</source>
+      </trans-unit>
+            <trans-unit id="sheet.xs" xml:space="preserve">
+        <source>Extra small</source>
+      </trans-unit>
+            <trans-unit id="sheet.lg" xml:space="preserve">
+        <source>Large</source>
+      </trans-unit>
+          
+     
+       <trans-unit id="label.md" xml:space="preserve">
+        <source>Medium</source>
+      </trans-unit>
+            <trans-unit id="label.sm" xml:space="preserve">
+        <source>Small</source>
+      </trans-unit>
+            <trans-unit id="label.xs" xml:space="preserve">
+        <source>Extra small</source>
+      </trans-unit>
+            <trans-unit id="label.lg" xml:space="preserve">
+        <source>Large</source>
+      </trans-unit>          
+       
+      <trans-unit id="label.content" xml:space="preserve">
+        <source>Content</source>
+      </trans-unit>
+      
+      <trans-unit id="label.row" xml:space="preserve">
+        <source>Row</source>
+      </trans-unit>
+      <trans-unit id="label.col" xml:space="preserve">
+        <source>Column</source>
+      </trans-unit>
+            <trans-unit id="label.col1" xml:space="preserve">
+        <source>Column 1</source>
+      </trans-unit>
+            <trans-unit id="label.col2" xml:space="preserve">
+        <source>Column 2</source>
+      </trans-unit>
+            <trans-unit id="label.col3" xml:space="preserve">
+        <source>Column 3</source>
+      </trans-unit>
+            <trans-unit id="label.col4" xml:space="preserve">
+        <source>Column 4</source>
+      </trans-unit>
+      
+      <trans-unit id="label.width.col1" xml:space="preserve">
+        <source>Column 1 width</source>
+      </trans-unit>
+            <trans-unit id="label.width.col2" xml:space="preserve">
+        <source>Column 2 width</source>
+      </trans-unit>
+            <trans-unit id="label.width.col3" xml:space="preserve">
+        <source>Column 3 width</source>
+      </trans-unit>
+            <trans-unit id="label.width.col4" xml:space="preserve">
+        <source>Column 4 width</source>
+      </trans-unit>
+      
+      <trans-unit id="label.offset.col1" xml:space="preserve">
+        <source>Column 1 offset</source>
+      </trans-unit>
+            <trans-unit id="label.offset.col2" xml:space="preserve">
+        <source>Column 2 offset</source>
+      </trans-unit>
+            <trans-unit id="label.offset.col3" xml:space="preserve">
+        <source>Column 3 offset</source>
+      </trans-unit>
+            <trans-unit id="label.offset.col4" xml:space="preserve">
+        <source>Column 4 offset</source>
+      </trans-unit>
+      
+       <trans-unit id="label.pull.col1" xml:space="preserve">
+        <source>Column 1 pull</source>
+      </trans-unit>
+            <trans-unit id="label.pull.col2" xml:space="preserve">
+        <source>Column 2 pull</source>
+      </trans-unit>
+            <trans-unit id="label.pull.col3" xml:space="preserve">
+        <source>Column 3 pull</source>
+      </trans-unit>
+            <trans-unit id="label.pull.col4" xml:space="preserve">
+        <source>Column 4 pull</source>
+      </trans-unit>
+      
+      <trans-unit id="label.push.col1" xml:space="preserve">
+        <source>Column 1 push</source>
+      </trans-unit>
+            <trans-unit id="label.push.col2" xml:space="preserve">
+        <source>Column 2 push</source>
+      </trans-unit>
+            <trans-unit id="label.push.col3" xml:space="preserve">
+        <source>Column 3 push</source>
+      </trans-unit>
+            <trans-unit id="label.push.col4" xml:space="preserve">
+        <source>Column 4 push</source>
+      </trans-unit>
+      
+       <trans-unit id="label.clear.col1" xml:space="preserve">
+        <source>Column 1 add a column reset</source>
+      </trans-unit>
+            <trans-unit id="label.clear.col2" xml:space="preserve">
+        <source>Column 2 add a column reset</source>
+      </trans-unit>
+            <trans-unit id="label.clear.col3" xml:space="preserve">
+        <source>Column 3 add a column reset</source>
+      </trans-unit>
+           
+      
+      <trans-unit id="label.notset" xml:space="preserve">
+        <source>not set</source>
+      </trans-unit>
+      
+       <trans-unit id="label.enable" xml:space="preserve">
+        <source>Enable</source>
+      </trans-unit>
+      <trans-unit id="label.none" xml:space="preserve">
+        <source>none</source>
+      </trans-unit>
+           <trans-unit id="export_mode" xml:space="preserve">
+        <source>Expert mode</source>
+      </trans-unit>     
+            <trans-unit id="two_column_grid">
+                <source>2 column grid</source>
+            </trans-unit>
+            <trans-unit id="two_column_grid_description">
+                <source>Preset row with two columns. Column width can be adjusted. Columns will always have an overall width of 12 grid columns.</source>
+            </trans-unit>
+
+            <trans-unit id="three_column_grid">
+                <source>3 column grid</source>
+            </trans-unit>
+            <trans-unit id="three_column_grid_description">
+                <source>Preset row with three columns. Column width can be adjusted. Columns will always have an overall width of 12 grid columns.</source>
+            </trans-unit>
+
+            <trans-unit id="four_column_grid">
+                <source>4 column grid</source>
+            </trans-unit>
+            <trans-unit id="four_column_grid_description">
+                <source>Preset row with four columns. Column width can be adjusted. Columns will always have an overall width of 12 grid columns.</source>
+            </trans-unit>
+
+            <trans-unit id="outer_left">
+                <source>Outer left</source>
+            </trans-unit>
+            <trans-unit id="middle_left">
+                <source>Middle left</source>
+            </trans-unit>
+            <trans-unit id="left">
+                <source>Left</source>
+            </trans-unit>
+            <trans-unit id="middle">
+                <source>Middle</source>
+            </trans-unit>
+            <trans-unit id="outer_right">
+                <source>Outer right</source>
+            </trans-unit>
+            <trans-unit id="middle_right">
+                <source>Middle right</source>
+            </trans-unit>
+            <trans-unit id="right">
+                <source>Right</source>
+            </trans-unit>
+
+            <trans-unit id="accordion">
+                <source>Accordion</source>
+            </trans-unit>
+            <trans-unit id="accordion_description">
+                <source>Container with collapsible child elements, which can either be single elements or containers as well</source>
+            </trans-unit>
+            <trans-unit id="accordion_content">
+                <source>Content</source>
+            </trans-unit>
+            <trans-unit id="accordion_active">
+                <source>Accordion active</source>
+            </trans-unit>
+            <trans-unit id="accordion_settings">
+                <source>Accordion settings</source>
+            </trans-unit>
+            <trans-unit id="accordion_settings_all_closed">
+                <source>All elements closed</source>
+            </trans-unit>
+            <trans-unit id="accordion_settings_first_open">
+                <source>First element open</source>
+            </trans-unit>
+            <trans-unit id="accordion_settings_all_open">
+                <source>All elements open</source>
+            </trans-unit>
+            <trans-unit id="accordion_toggle">
+                <source>Accordion show/hide all</source>
+            </trans-unit>
+            <trans-unit id="accordion_toggle_show">
+                <source>Show toggle</source>
+            </trans-unit>
+            <trans-unit id="accordion_toggle_hide">
+                <source>Hide toggle</source>
+            </trans-unit>
+
+            <trans-unit id="carousel">
+                <source>Carousel</source>
+            </trans-unit>
+            <trans-unit id="carousel_description">
+                <source>Carousel/Slider</source>
+            </trans-unit>
+            <trans-unit id="carousel_content">
+                <source>Content</source>
+            </trans-unit>
+
+            <trans-unit id="column">
+                <source>Column</source>
+            </trans-unit>
+            <trans-unit id="column_content">
+                <source>Column content</source>
+            </trans-unit>
+            <trans-unit id="column_widths_medium">
+                <source>Desktops</source>
+            </trans-unit>
+            <trans-unit id="column_widths_small">
+                <source>Tablets</source>
+            </trans-unit>
+            <trans-unit id="column_widths_extrasmall">
+                <source>Mobile devices</source>
+            </trans-unit>
+            <trans-unit id="column_widths_large">
+                <source>Large devices</source>
+            </trans-unit>
+            <trans-unit id="column_width_distribution">
+                <source>Column width distribution</source>
+            </trans-unit>
+            <trans-unit id="column_width">
+                <source>Column width</source>
+            </trans-unit>
+            <trans-unit id="column_offset">
+                <source>Column offset</source>
+            </trans-unit>
+            <trans-unit id="column_push">
+                <source>Column push</source>
+            </trans-unit>
+            <trans-unit id="column_pull">
+                <source>Column pull</source>
+            </trans-unit>
+            <trans-unit id="column_undefined">
+                <source>Undefined</source>
+            </trans-unit>
+            <trans-unit id="column_width_undefined">
+                <source>Undefined - Using definition for medium size</source>
+            </trans-unit>
+            <trans-unit id="extended_settings">
+                <source>Extended Settings</source>
+            </trans-unit>
+            <trans-unit id="equalheight">
+                <source>Force equal column height</source>
+            </trans-unit>
+            <trans-unit id="equalheight_off">
+                <source>Default column height</source>
+            </trans-unit>
+            <trans-unit id="visible">
+                <source>Element is visible</source>
+            </trans-unit>
+            <trans-unit id="visible_block">
+                <source>Element is visible as block</source>
+            </trans-unit>
+            <trans-unit id="visible_inline">
+                <source>Element is visible inline</source>
+            </trans-unit>
+            <trans-unit id="visible_inline_block">
+                <source>Element is visible as inline block</source>
+            </trans-unit>
+            <trans-unit id="invisible">
+                <source>Element is hidden</source>
+            </trans-unit>
+
+            <trans-unit id="container">
+                <source>Container</source>
+            </trans-unit>
+            <trans-unit id="container_description">
+                <source>Containers can be used to breakup default structures and have elements use the whole viewport width instead of the limited grid.</source>
+            </trans-unit>
+            <trans-unit id="container_content">
+                <source>Container content</source>
+            </trans-unit>
+
+            <trans-unit id="row">
+                <source>Row</source>
+            </trans-unit>
+            <trans-unit id="row_description">
+                <source>Rows can be used as containers to group elements horizontally without additional functionality</source>
+            </trans-unit>
+            <trans-unit id="row_content">
+                <source>Row content</source>
+            </trans-unit>
+
+            <trans-unit id="single_column">
+                <source>Column / Panel (Vertical)</source>
+            </trans-unit>
+            <trans-unit id="single_column_horizontal">
+                <source>Column / Panel (Horizontal)</source>
+            </trans-unit>
+            <trans-unit id="single_column_description">
+                <source>Panels can be used as subcontainers within rows, accordions, tabs or carousels to group elements vertically or horizontally without additional functionality</source>
+            </trans-unit>
+
+            <trans-unit id="tabs">
+                <source>Tabs</source>
+            </trans-unit>
+            <trans-unit id="tabs_description">
+                <source>Container that wraps some tabbed panes</source>
+            </trans-unit>
+            <trans-unit id="tabs_container">
+                <source>Tab container element</source>
+            </trans-unit>
+            <trans-unit id="tabs_appearance">
+                <source>Appearance</source>
+            </trans-unit>
+            <trans-unit id="tabs_appearance_tabs">
+                <source>Tabs</source>
+            </trans-unit>
+            <trans-unit id="tabs_appearance_pills">
+                <source>Pills</source>
+            </trans-unit>
+            <trans-unit id="tabs_transition">
+                <source>Transition</source>
+            </trans-unit>
+            <trans-unit id="tabs_transition_none">
+                <source>None</source>
+            </trans-unit>
+            <trans-unit id="tabs_transition_fade">
+                <source>Fade in</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>
