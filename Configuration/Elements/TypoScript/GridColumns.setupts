@@ -38,25 +38,37 @@ lib.gridelements{
             }
             
             columns_sm < .columns_xs 
-            columns_sm.cObject.override{
-                field = parentgrid_flexform_column_widths_sm
-                stdWrap.stdWrap.replacement.10.search = #small-width-([0-9]+)#i
+            columns_sm.cObject{
+            	value >
+                data = register:columns_xs 
+            	override{
+            	    field = parentgrid_flexform_column_widths_sm
+                    stdWrap.stdWrap.replacement.10.search = #small-width-([0-9]+)#i
+            	}
             }
             columns_md < .columns_sm
-            columns_md.cObject.override{
-                field = parentgrid_flexform_column_widths_md
-                stdWrap.stdWrap.replacement.10.search = #medium-width-([0-9]+)#i
-                
+            columns_md.cObject{
+            	data = register:columns_sm
+            	override{
+                	field = parentgrid_flexform_column_widths_md
+                	stdWrap.stdWrap.replacement.10.search = #medium-width-([0-9]+)#i
+                }
             }
             columns_lg < .columns_md
-            columns_lg.cObject.override{
-                field = parentgrid_flexform_column_widths_lg
-                stdWrap.stdWrap.replacement.10.search = #large-width-([0-9]+)#i
+            columns_lg.cObject{
+            	data = register:columns_md
+            	override{
+                	field = parentgrid_flexform_column_widths_lg
+                	stdWrap.stdWrap.replacement.10.search = #large-width-([0-9]+)#i
+                }
             }   
             columns_xl < .columns_lg
-            columns_xl.cObject.override{
-                field = parentgrid_flexform_column_widths_xl
-                stdWrap.stdWrap.replacement.10.search = #extralarge-width-([0-9]+)#i
+            columns_xl.cObject{
+            	data = register:columns_lg
+            	override{
+                	field = parentgrid_flexform_column_widths_xl
+                	stdWrap.stdWrap.replacement.10.search = #extralarge-width-([0-9]+)#i
+            	}
             }
             
             width_xxs {

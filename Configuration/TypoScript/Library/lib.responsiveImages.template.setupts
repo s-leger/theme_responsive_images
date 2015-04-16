@@ -17,22 +17,41 @@ lib.responsiveImages.template {
      
     # Number of columns, auto propagate from lower to bigger
     
-    columns_xs.cObject = TEXT
-    columns_xs.value = {$plugin.lef_bootstrap_theme.columns}
-    columns_xs.override.field = col_xs
-    
-    columns_sm < .columns_xs
-    columns_sm.override.field = col_sm
-    
-    columns_md < .columns_sm
-    columns_md.override.field = col_md
-    
-    columns_lg < .columns_md
-    columns_lg.override.field = col_lg
-    
-    columns_xl < .columns_lg
-    columns_xl.override.field = col_xl
-    
+    columns_xs{
+       cObject = TEXT
+       cObject{
+    	value = {$plugin.lef_bootstrap_theme.columns}
+    	override.field = col_xs
+    	}
+    }
+    columns_sm{
+       cObject = TEXT
+       cObject{
+    	data = register:columns_xs
+    	override.field = col_sm
+    	}
+    }
+    columns_md{
+       cObject = TEXT
+       cObject{
+    	data = register:columns_sm
+    	override.field = col_md
+    	}
+    }
+    columns_lg{
+       cObject = TEXT
+       cObject{
+    	data = register:columns_md
+    	override.field = col_lg
+    	}
+    }
+    columns_xl{
+       cObject = TEXT
+       cObject{
+    	data = register:columns_lg
+    	override.field = col_xl
+    	}
+    }	
      # Available width
     
     width_xxs {
@@ -74,7 +93,7 @@ lib.responsiveImages.template {
         override{
             20.value = {$plugin.lef_bootstrap_theme.screen.sm}
             if{
-                isLessThan.field = fluid 
+                isLessThan.field = fluid
                 isFalse = {$plugin.lef_bootstrap_theme.fluid.xs}
             }
         }
