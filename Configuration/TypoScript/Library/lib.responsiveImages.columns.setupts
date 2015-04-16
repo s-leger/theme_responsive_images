@@ -1,5 +1,7 @@
-
-### Handle gridelements columns and container behiavour
+#####################################
+### Handle gridelements 
+### columns and container behiavour
+#####################################
 
 lib.responsiveImages{
     
@@ -112,16 +114,9 @@ lib.responsiveImages{
                     stdWrap.override = {$plugin.lef_bootstrap_theme.container.xl}
                 }
             }
-            
         }
-        restoreWidth = COA
-        restoreWidth{
-            # 10-13
-            10 = RESTORE_REGISTER
-            
-        }
+        restoreWidth = RESTORE_REGISTER        
     }
-    
 }   
 
 tt_content.gridelements_pi1.20 {

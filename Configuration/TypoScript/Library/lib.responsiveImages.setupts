@@ -1,5 +1,5 @@
 ############################################
-###   LEF bootstrap_package extension    ###
+###  theme_responsive_images extension   ###
 ###   automagic responsive image size    ###
 ###                                      ###
 ### note: 4 breakpoints -> 5 image size  ###
@@ -23,6 +23,7 @@
 # image width
 lib.responsiveImages.width = COA
 lib.responsiveImages.width {
+    
     5 = TEXT
     5.value = ((
     
@@ -32,7 +33,7 @@ lib.responsiveImages.width {
         data = register:width_lg
         
         # available width for image above text
-        # assuming a 50% of available width
+        # factor set by typoscript variable
         # changing this dosent require any change on css 
         
         stdWrap  {
@@ -261,8 +262,10 @@ tt_content.image.20.1 {
                 override < lib.responsiveImages.srcset
                 override {
                     if.isTrue = {$plugin.lef_bootstrap_theme.enable.imageColumnsAdaptive}
+                    
                     # width of images in columns could depends on breakpoints and number of columns
                     # inspired by bootstrap_package image rendering
+                    
                     10.data = register:width_sm
                     20{
                         30 >
@@ -313,11 +316,11 @@ tt_content.image.20.1 {
                 override < lib.responsiveImages.srcset
                 override {
                     if.isTrue = {$plugin.lef_bootstrap_theme.enable.imageColumnsAdaptive}
+                    
                     # width of images in columns could depends on breakpoints and number of columns
                     # inspired by bootstrap_package image rendering
+                    
                     10.data = register:width_xs
-                    # width of images in columns depends on breakpoints and number of columns
-                    # inspired by bootstrap_package image rendering
                     20{
                         30{
                             4 < .default
@@ -343,6 +346,7 @@ tt_content.image.20.1 {
             width.stdWrap.cObject{
                 10{
                     data = register:width_xxs
+                    
                     # text beside image dosen t make sense for sutch small device
                     stdWrap >
                 }

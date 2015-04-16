@@ -1,6 +1,16 @@
-##################################
-## Handle Section frame width   ##
-##################################
+#####################################
+## Handle Section frame and variants 
+##  
+#####################################
+
+# Note : seem that innerWrap disable   
+#        section frames classes 
+
+# Variants size are set by typoscript constants
+# for each breakpoint.
+# Sizes propagation from lower to upper breakpoint  
+# See Jumbotron behaviour as reference
+
 
 # tx_themes_variants
 # Variants available for each element
@@ -197,9 +207,7 @@ lib.responsiveImages.variants {
     }
 }
 
-
 lib.responsiveImages.restore = RESTORE_REGISTER
-
 
 tt_content {
     gridelements_pi1.20{

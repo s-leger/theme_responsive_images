@@ -1,36 +1,39 @@
 #####################################
-## Initialise number of columns
+## Handle template layouts
 #####################################
 
 # Available width of template layout
 
-# template vars : 
+# FluidTemplate vars : 
 # @ col_xs, sm, md, lg, xl : integer, number of columns 
-# @ fluid : boolean, set to 1 with no fixed width container   
+# @ fluid : boolean, set to 1 on layouts without .container   
 
 # Behiavour of breakpoints
 # fluid -> make image size the screen size max for the breakpoint
 # fixed -> make image size the width of container for current breakpoint
 
-
 lib.responsiveImages.template = LOAD_REGISTER
 lib.responsiveImages.template {
      
-    
-    # number of columns, auto propagate from lower to bigger
+    # Number of columns, auto propagate from lower to bigger
     
     columns_xs.cObject = TEXT
     columns_xs.value = {$plugin.lef_bootstrap_theme.columns}
     columns_xs.override.field = col_xs
+    
     columns_sm < .columns_xs
     columns_sm.override.field = col_sm
-    columns_md < .columns_xs
+    
+    columns_md < .columns_sm
     columns_md.override.field = col_md
-    columns_lg < .columns_xs
+    
+    columns_lg < .columns_md
     columns_lg.override.field = col_lg
-    columns_xl < .columns_xl
+    
+    columns_xl < .columns_lg
     columns_xl.override.field = col_xl
     
+     # Available width
     
     width_xxs {
         cObject = COA
@@ -60,9 +63,7 @@ lib.responsiveImages.template {
         }
         prioriCalc = 1
     }
-    
-    # Available width
-    
+ 
     width_xs  < .width_xxs
     width_xs.cObject {
         10{
@@ -78,6 +79,7 @@ lib.responsiveImages.template {
             }
         }
     }
+ 
     width_sm < .width_xs
     width_sm.cObject {
         10{
@@ -92,9 +94,8 @@ lib.responsiveImages.template {
                 isFalse = {$plugin.lef_bootstrap_theme.fluid.sm}    
             }
         }    
-        
-        
     }    
+ 
     width_md < .width_xs
     width_md.cObject {
         10{
@@ -109,8 +110,8 @@ lib.responsiveImages.template {
                 isFalse = {$plugin.lef_bootstrap_theme.fluid.md}
             }   
         }
-        
     }
+ 
     width_lg < .width_xs
     width_lg.cObject {
         10{
@@ -126,6 +127,7 @@ lib.responsiveImages.template {
             }
         }   
     }
+    
     width_xl < .width_xs
     width_xl.cObject {
         10{
@@ -140,9 +142,7 @@ lib.responsiveImages.template {
                 isFalse = {$plugin.lef_bootstrap_theme.fluid.xl}
             }
         }
-        
     }
-    
 }
 
 # Restore registers
