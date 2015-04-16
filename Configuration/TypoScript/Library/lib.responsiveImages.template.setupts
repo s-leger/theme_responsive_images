@@ -12,6 +12,7 @@
 # fluid -> make image size the screen size max for the breakpoint
 # fixed -> make image size the width of container for current breakpoint
 
+
 lib.responsiveImages.template = LOAD_REGISTER
 lib.responsiveImages.template {
     

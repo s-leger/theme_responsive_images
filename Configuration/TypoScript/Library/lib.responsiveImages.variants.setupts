@@ -8,9 +8,7 @@
 #    alert-info = alert alert-info
 #    alert-warning = alert alert-warning
 #    alert-danger = alert alert-danger
-
 #    wide-screen = jumbotron
-
 #    framed = well
 #    framed-small = well well-sm
 #    framed-large = well well-lg
@@ -211,14 +209,14 @@ tt_content {
     }
     image{
         5  = < lib.responsiveImages.variants 
-           7  < lib.responsiveImages.debug
-           7.10.value = IMAGE:
+        7  < lib.responsiveImages.debug
+        7.10.value = IMAGE:
         50 = < lib.responsiveImages.restore 
     }
     textpic{
         5  = < lib.responsiveImages.variants 
         7  < lib.responsiveImages.debug
-           7.10.value = TEXTPIC:
+        7.10.value = TEXTPIC:
         50 = < lib.responsiveImages.restore 
     }
 }

@@ -33,37 +33,26 @@ lib.responsiveImages{
         registerWidth = COA
         registerWidth {
             
-            # Number of columns : 5 registers to propagate from lower to upper
             
             10 = LOAD_REGISTER
-            10 {
+            10 {            
+                
+                # Number of columns : propagate from lower to upper
+                
                 columns_xs = {$plugin.lef_bootstrap_theme.columns}
                 columns_xs.override < lib.responsiveImages.parseWidthClass.extrasmall
-            }
-            11 = LOAD_REGISTER
-            11 {
-                columns_sm.data = register:columns_xs
+                
+                columns_sm < .columns_xs 
                 columns_sm.override < lib.responsiveImages.parseWidthClass.small
-            }
-            12 = LOAD_REGISTER
-            12 {
-                columns_md.data = register:columns_sm
+                
+                columns_md < .columns_sm 
                 columns_md.override < lib.responsiveImages.parseWidthClass.medium
-            }
-            13 = LOAD_REGISTER
-            13 {
-                columns_lg.data = register:columns_md
+                
+                columns_lg < .columns_md 
                 columns_lg.override < lib.responsiveImages.parseWidthClass.large
-            }
-            14 = LOAD_REGISTER
-            14 {
-                columns_xl.data = register:columns_lg
+                
+                columns_xl < .columns_lg
                 columns_xl.override < lib.responsiveImages.parseWidthClass.extralarge
-            }    
-            
-            
-            20 = LOAD_REGISTER
-            20 {
                 
                 # Column width 
                 width_xxs {
@@ -129,12 +118,7 @@ lib.responsiveImages{
         restoreWidth{
             # 10-13
             10 = RESTORE_REGISTER
-            11 = RESTORE_REGISTER
-            12 = RESTORE_REGISTER
-            13 = RESTORE_REGISTER
-            14 = RESTORE_REGISTER
-            # 20
-            20 = RESTORE_REGISTER
+            
         }
     }
     

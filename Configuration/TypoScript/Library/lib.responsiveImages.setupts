@@ -16,7 +16,6 @@
 ### the width/height of images when not resized are 0
 ### https://forge.typo3.org/issues/46020
 
-
 ############################################
 ### compute image width for each breakpoint
 ############################################
@@ -35,7 +34,7 @@ lib.responsiveImages.width {
         # available width for image above text
         # assuming a 50% of available width
         # changing this dosent require any change on css 
-		
+        
         stdWrap  {
             wrap {
                 cObject = TEXT
@@ -44,12 +43,12 @@ lib.responsiveImages.width {
                     stdWrap.if {
                         value = 17,18,25,26
                         isInList.field = imageorient
-					}
-				}
-			}
+                    }
+                }
+            }
             outerWrap = (|)
-		}
-	}
+        }
+    }
     
     ## multi columns layouts
     20 = COA
@@ -78,14 +77,14 @@ lib.responsiveImages.width {
                 if {
                     value = 1
                     isGreaterThan.data = register:imageCount
-				}
-			}
-		}
+                }
+            }
+        }
         
         35 = TEXT
         35.value = )
         stdWrap.wrap = -(|)
-	}
+    }
     
     30 = TEXT
     30.value = )
@@ -98,9 +97,9 @@ lib.responsiveImages.width {
         stdWrap.if {
             value = 1
             isGreaterThan.data = register:imageCount
-		}
+        }
         insertData = 1
-	}
+    }
     
     50 = TEXT
     50.value = )
@@ -110,7 +109,7 @@ lib.responsiveImages.width {
     60 {
         value = -(({$styles.content.imgtext.borderThick}+{$styles.content.imgtext.borderSpace})*2)
         stdWrap.if.isTrue.field = imageborder
-	}
+    }
     
 }
 
@@ -131,14 +130,14 @@ lib.responsiveImages.srcset{
         value = AND
         stdWrap.noTrimWrap = | | |
         if.isTrue = 1
-	}
+    }
     # media query max width
     20 = COA
     20{
-		10 = TEXT
-		10.prioriCalc = intval
-		stdWrap.wrap = (max-width:|px)
-	}
+        10 = TEXT
+        10.prioriCalc = intval
+        stdWrap.wrap = (max-width:|px)
+    }
     # media query pixeldensity
     25 = TEXT
     25.stdWrap.noTrimWrap = | ||
@@ -151,11 +150,11 @@ lib.responsiveImages.srcset{
             value =
             stdWrap.insertData = 1
             prioriCalc = intval
-		}
+        }
         stdWrap{
             noTrimWrap = | |vw|
-		}
-	}
+        }
+    }
     40 = TEXT
     40.value = ,
 }
@@ -177,13 +176,13 @@ tt_content.image.20.1 {
         srcset {
             element = <img ###PARAMS### srcset="###SOURCECOLLECTION###" src="###SRC###"###ALTPARAMS######SELFCLOSINGTAGSLASH###>
             source = |*|###SRC### ###WIDTH###w,|*|###SRC### ###WIDTH###w
-		}
+        }
         picture {
             element = <picture>###SOURCECOLLECTION###<img src="###SRC###"###PARAMS######ALTPARAMS######SELFCLOSINGTAGSLASH###></picture>
             source = <source srcset="###SRC###" media="###MEDIAQUERY###"###SELFCLOSINGTAGSLASH###>
             ## removed width/height from source due to incorrect setting with retina 
             ## width="###WIDTH###" height="###HEIGHT###"
-		}
+        }
         lazyload {
             element (
             <img src="typo3conf/ext/lef_bootstrap_theme/Resources/Public/Images/ajax-loader.gif" ###SOURCECOLLECTION######PARAMS######ALTPARAMS######SELFCLOSINGTAGSLASH###>
@@ -194,8 +193,8 @@ tt_content.image.20.1 {
             source = data-###DATAKEY###="###SRC###"
             source.noTrimWrap = ; ;;
             source.noTrimWrap.splitChar = ;
-		}
-	}
+        }
+    }
     
     layoutKey = {$styles.content.imgtext.layoutKey}
     
@@ -207,135 +206,135 @@ tt_content.image.20.1 {
         # 1920 +
         retina-xl {
             if{
-            	isTrue = {$plugin.lef_bootstrap_theme.retina.enable}
-            	value = 1
-            	equals = {$plugin.lef_bootstrap_theme.enable.xl}
-			}
+                isTrue = {$plugin.lef_bootstrap_theme.retina.enable}
+                value = 1
+                equals = {$plugin.lef_bootstrap_theme.enable.xl}
+            }
             width.stdWrap{
                 cObject < lib.responsiveImages.width
                 cObject.10.data = register:width_xl
                 prioriCalc = intval
-			}
+            }
             maxW = < .width
             pixelDensity = {$plugin.lef_bootstrap_theme.retina.pixeldensity}
             # media query params  = min, max, -webkit-min-pixel-density, density
             mediaQuery = {$plugin.lef_bootstrap_theme.viewport.xl},0,{$plugin.lef_bootstrap_theme.retina.mediaquery},{$plugin.lef_bootstrap_theme.retina.pixeldensity}
             dataKey =  retina-xtralarge
-		}
-		# 1200 +
+        }
+        # 1200 +
         retina-lg < .retina-xl
         retina-lg {
             if{
-            	isTrue = {$plugin.lef_bootstrap_theme.retina.enable}
-            	value = 1
-            	equals = {$plugin.lef_bootstrap_theme.enable.lg}
-			}
+                isTrue = {$plugin.lef_bootstrap_theme.retina.enable}
+                value = 1
+                equals = {$plugin.lef_bootstrap_theme.enable.lg}
+            }
             width.stdWrap.cObject.10.data = register:width_lg
             maxW = < .width
             # media query params  = min, max, -webkit-min-pixel-density, density
             mediaQuery = {$plugin.lef_bootstrap_theme.viewport.lg},{$plugin.lef_bootstrap_theme.viewport.xl},{$plugin.lef_bootstrap_theme.retina.mediaquery},{$plugin.lef_bootstrap_theme.retina.pixeldensity}
             dataKey =  retina-bigger
-		}
+        }
         # 992 - 1199
         retina-md < .retina-xl
         retina-md {
             if{
-            	isTrue = {$plugin.lef_bootstrap_theme.retina.enable}
-            	value = 1
-            	equals = {$plugin.lef_bootstrap_theme.enable.md}
-			}
+                isTrue = {$plugin.lef_bootstrap_theme.retina.enable}
+                value = 1
+                equals = {$plugin.lef_bootstrap_theme.enable.md}
+            }
             width.stdWrap.cObject.10.data = register:width_md
             maxW = < .width  
-			mediaQuery = {$plugin.lef_bootstrap_theme.viewport.md},{$plugin.lef_bootstrap_theme.viewport.lg},{$plugin.lef_bootstrap_theme.retina.mediaquery},{$plugin.lef_bootstrap_theme.retina.pixeldensity}
-			dataKey =  retina-large
-		}
+            mediaQuery = {$plugin.lef_bootstrap_theme.viewport.md},{$plugin.lef_bootstrap_theme.viewport.lg},{$plugin.lef_bootstrap_theme.retina.mediaquery},{$plugin.lef_bootstrap_theme.retina.pixeldensity}
+            dataKey =  retina-large
+        }
         # 768 - 991
         retina-sm < .retina-xl
         retina-sm {
             if{
-            	isTrue = {$plugin.lef_bootstrap_theme.retina.enable}
-            	value = 1
-            	equals = {$plugin.lef_bootstrap_theme.enable.sm}
-			}
+                isTrue = {$plugin.lef_bootstrap_theme.retina.enable}
+                value = 1
+                equals = {$plugin.lef_bootstrap_theme.enable.sm}
+            }
             width.stdWrap.cObject{
-				10.data = register:width_sm
-				override < lib.responsiveImages.srcset
-				override {
-					if.isTrue = {$plugin.lef_bootstrap_theme.enable.imageColumnsAdaptive}
-					# width of images in columns could depends on breakpoints and number of columns
-					# inspired by bootstrap_package image rendering
-					10.data = register:width_sm
-					20{
-						30 >
-						30 = CASE
-						30{
-							key{
-								field = imagecols
-								override = default
-								override.if{
-									value = 1
-									isGreaterThan.data = register:imageCount
-									negate = 1
-								}
-							}
-							default = TEXT
-							default.value = 1
-							2 < .default
-							3 < .default
-							3.value = 3
-							4 < .default
-							4.value = 4
-							6 < .default
-							6.value = 6
-							stdWrap.wrap = (|-1)
-						}
-					}
-					40 >
-					40 < .20.30
-					40.stdWrap.wrap = /|
+                10.data = register:width_sm
+                override < lib.responsiveImages.srcset
+                override {
+                    if.isTrue = {$plugin.lef_bootstrap_theme.enable.imageColumnsAdaptive}
+                    # width of images in columns could depends on breakpoints and number of columns
+                    # inspired by bootstrap_package image rendering
+                    10.data = register:width_sm
+                    20{
+                        30 >
+                        30 = CASE
+                        30{
+                            key{
+                                field = imagecols
+                                override = default
+                                override.if{
+                                    value = 1
+                                    isGreaterThan.data = register:imageCount
+                                    negate = 1
+                                }
+                            }
+                            default = TEXT
+                            default.value = 1
+                            2 < .default
+                            3 < .default
+                            3.value = 3
+                            4 < .default
+                            4.value = 4
+                            6 < .default
+                            6.value = 6
+                            stdWrap.wrap = (|-1)
+                        }
+                    }
+                    40 >
+                    40 < .20.30
+                    40.stdWrap.wrap = /|
                 }
-			}
+            }
             
             maxW = < .width
             mediaQuery = {$plugin.lef_bootstrap_theme.viewport.sm},{$plugin.lef_bootstrap_theme.viewport.md},{$plugin.lef_bootstrap_theme.retina.mediaquery},{$plugin.lef_bootstrap_theme.retina.pixeldensity}
             dataKey =  retina-medium
-		}
+        }
         
         # 480 - 767
         retina-xs < .retina-xl
         retina-xs{
             if{
-            	isTrue = {$plugin.lef_bootstrap_theme.retina.enable}
-            	value = 1
-            	equals = {$plugin.lef_bootstrap_theme.enable.xs}
-			}
+                isTrue = {$plugin.lef_bootstrap_theme.retina.enable}
+                value = 1
+                equals = {$plugin.lef_bootstrap_theme.enable.xs}
+            }
             width.stdWrap.cObject{
                 10.data = register:width_xs
                 override < lib.responsiveImages.srcset
-				override {
-					if.isTrue = {$plugin.lef_bootstrap_theme.enable.imageColumnsAdaptive}
-					# width of images in columns could depends on breakpoints and number of columns
-					# inspired by bootstrap_package image rendering
-					10.data = register:width_xs
-					# width of images in columns depends on breakpoints and number of columns
-					# inspired by bootstrap_package image rendering
-					20{
-						30{
-							4 < .default
-							4.value = 2
-							6 < .default
-							6.value = 3
-						}
-					}
-					40 < .20.30
-					40.stdWrap.wrap = /|
+                override {
+                    if.isTrue = {$plugin.lef_bootstrap_theme.enable.imageColumnsAdaptive}
+                    # width of images in columns could depends on breakpoints and number of columns
+                    # inspired by bootstrap_package image rendering
+                    10.data = register:width_xs
+                    # width of images in columns depends on breakpoints and number of columns
+                    # inspired by bootstrap_package image rendering
+                    20{
+                        30{
+                            4 < .default
+                            4.value = 2
+                            6 < .default
+                            6.value = 3
+                        }
+                    }
+                    40 < .20.30
+                    40.stdWrap.wrap = /|
                 }
                 
-			}
+            }
             maxW = < .width
             mediaQuery = {$plugin.lef_bootstrap_theme.viewport.xs},{$plugin.lef_bootstrap_theme.viewport.sm},{$plugin.lef_bootstrap_theme.retina.mediaquery},{$plugin.lef_bootstrap_theme.retina.pixeldensity}
             dataKey =  retina-small
-		}
+        }
         
         # 0 - 479
         retina-xxs < .retina-xl
@@ -346,12 +345,12 @@ tt_content.image.20.1 {
                     data = register:width_xxs
                     # text beside image dosen t make sense for sutch small device
                     stdWrap >
-				}
-			}
+                }
+            }
             maxW = < .width
             mediaQuery = 0,{$plugin.lef_bootstrap_theme.viewport.xs},{$plugin.lef_bootstrap_theme.retina.mediaquery},{$plugin.lef_bootstrap_theme.retina.pixeldensity}
             dataKey =  retina-xsmall
-		}
+        }
         
         ## base 
         xl < .retina-xl
@@ -360,14 +359,14 @@ tt_content.image.20.1 {
             pixelDensity = 1
             mediaQuery = {$plugin.lef_bootstrap_theme.viewport.xl}
             dataKey = xtralarge
-		}
+        }
         lg < .retina-lg
         lg {
             if.isTrue = 1
             pixelDensity = 1
             mediaQuery = {$plugin.lef_bootstrap_theme.viewport.lg},{$plugin.lef_bootstrap_theme.viewport.xl}
             dataKey = bigger
-		}
+        }
         
         md < .retina-md
         md {
@@ -375,15 +374,15 @@ tt_content.image.20.1 {
             pixelDensity = 1
             mediaQuery = {$plugin.lef_bootstrap_theme.viewport.md},{$plugin.lef_bootstrap_theme.viewport.lg}
             dataKey = large
-		}
+        }
         
         sm < .retina-sm
         sm{
             if.isTrue = 1
             pixelDensity = 1
             mediaQuery = {$plugin.lef_bootstrap_theme.viewport.sm},{$plugin.lef_bootstrap_theme.viewport.md}
-			dataKey = medium
-		}
+            dataKey = medium
+        }
         
         xs < .retina-xs
         xs{
@@ -391,7 +390,7 @@ tt_content.image.20.1 {
             pixelDensity = 1
             mediaQuery = {$plugin.lef_bootstrap_theme.viewport.xs},{$plugin.lef_bootstrap_theme.viewport.sm}
             dataKey = small
-		}
+        }
         
         xxs < .retina-xxs
         xxs {
@@ -399,8 +398,8 @@ tt_content.image.20.1 {
             pixelDensity = 1
             mediaQuery = 0,{$plugin.lef_bootstrap_theme.viewport.xs}
             dataKey = xsmall
-		}
-	}
+        }
+    }
     
     params >
     params.stdWrap {
@@ -419,17 +418,17 @@ tt_content.image.20.1 {
                         stdWrap {
                             noTrimWrap = | ||
                             if.isTrue.field = tx_responsiveimages
-						}
-					}
+                        }
+                    }
                     stdWrap.if {
                         value  = lazyload 
                         equals = {$styles.content.imgtext.layoutKey}
-					}
-				}
+                    }
+                }
                 /*
-					# Images frames
-					30 = CASE
-					30{
+                    # Images frames
+                    30 = CASE
+                    30{
                     key.field = layout
                     default = TEXT
                     default.value =
@@ -438,38 +437,38 @@ tt_content.image.20.1 {
                     2 < .default
                     2.value = img-circle
                     stdWrap {
-					noTrimWrap = | ||
-					required = 1
+                    noTrimWrap = | ||
+                    required = 1
                     }
-					}
-				*/
+                    }
+                */
                 stdWrap{
-					noTrimWrap =| class="|"|
-					required = 1
-				}
-			}
+                    noTrimWrap =| class="|"|
+                    required = 1
+                }
+            }
             # Sizes params for srcset
             20  = COA
             20 {
-            	# xl
-            	110 < lib.responsiveImages.srcset 
+                # xl
+                110 < lib.responsiveImages.srcset 
                 110{
-                    stdWrap.if.isTrue = {$plugin.lef_bootstrap_theme.enable.xl}	
+                    stdWrap.if.isTrue = {$plugin.lef_bootstrap_theme.enable.xl} 
                     10.value = {$plugin.lef_bootstrap_theme.viewport.xl}
                     15.if.IsTrue = 0
                     20.if.isTrue = 0
                     30.10.value =  100*{register:width_xl}/{$plugin.lef_bootstrap_theme.viewport.xl}
-				}
+                }
                 # lg
                 120 < lib.responsiveImages.srcset 
                 120{
-                    stdWrap.if.isTrue = {$plugin.lef_bootstrap_theme.enable.lg}	
+                    stdWrap.if.isTrue = {$plugin.lef_bootstrap_theme.enable.lg} 
                     10.value = {$plugin.lef_bootstrap_theme.viewport.lg}
                     15.if.IsTrue = {$plugin.lef_bootstrap_theme.enable.xl}
                     20.10.value  = {$plugin.lef_bootstrap_theme.viewport.xl} - 1
                     20.if.isTrue = {$plugin.lef_bootstrap_theme.enable.xl}
                     30.10.value =  100*{register:width_lg}/{$plugin.lef_bootstrap_theme.viewport.lg}
-				}
+                }
                 # md
                 130 < lib.responsiveImages.srcset 
                 130{
@@ -478,7 +477,7 @@ tt_content.image.20.1 {
                     20.10.value = {$plugin.lef_bootstrap_theme.viewport.lg} - 1
                     20.if.isTrue = {$plugin.lef_bootstrap_theme.enable.lg}
                     30.10.value = 100*{register:width_md}/{$plugin.lef_bootstrap_theme.viewport.md}
-				}
+                }
                 # sm
                 140 < lib.responsiveImages.srcset
                 140{
@@ -487,7 +486,7 @@ tt_content.image.20.1 {
                     20.10.value = {$plugin.lef_bootstrap_theme.viewport.md} - 1
                     20.if.isTrue = {$plugin.lef_bootstrap_theme.enable.md}
                     30.10.value = 100*{register:width_sm}/{$plugin.lef_bootstrap_theme.viewport.sm}
-				}
+                }
                 # xs
                 150 < lib.responsiveImages.srcset  
                 150{
@@ -496,7 +495,7 @@ tt_content.image.20.1 {
                     20.10.value = {$plugin.lef_bootstrap_theme.viewport.sm} - 1
                     20.if.isTrue = {$plugin.lef_bootstrap_theme.enable.sm}
                     30.10.value = 100*{register:width_xs}/{$plugin.lef_bootstrap_theme.viewport.sm}
-				}
+                }
                 # xxs
                 160 < lib.responsiveImages.srcset  
                 160{
@@ -505,55 +504,55 @@ tt_content.image.20.1 {
                     20.10.value = {$plugin.lef_bootstrap_theme.viewport.xs} - 1
                     30.10.value = 100*{register:width_xxs}/{$plugin.lef_bootstrap_theme.viewport.xs}
                     40 >
-				}
+                }
                 
                 ### retina (rendering before but defined after)
-				# xl
+                # xl
                 10 < .110
                 10{
                     stdWrap.if.isTrue = {$plugin.lef_bootstrap_theme.retina.enable}
                     25.value = AND ({$plugin.lef_bootstrap_theme.retina.mediaquery}:{$plugin.lef_bootstrap_theme.retina.pixeldensity})
-				}
+                }
                 # lg
                 20 < .120
                 20{
                     stdWrap.if.isTrue = {$plugin.lef_bootstrap_theme.retina.enable}
                     25.value = AND ({$plugin.lef_bootstrap_theme.retina.mediaquery}:{$plugin.lef_bootstrap_theme.retina.pixeldensity})
-				}
+                }
                 # md
                 30 < .130
                 30{
                     stdWrap.if.isTrue = {$plugin.lef_bootstrap_theme.retina.enable}
                     25.value = AND ({$plugin.lef_bootstrap_theme.retina.mediaquery}:{$plugin.lef_bootstrap_theme.retina.pixeldensity})
-				}
+                }
                 # sm
                 40 < .140
                 40{
                     stdWrap.if.isTrue = {$plugin.lef_bootstrap_theme.retina.enable}
                     25.value = AND ({$plugin.lef_bootstrap_theme.retina.mediaquery}:{$plugin.lef_bootstrap_theme.retina.pixeldensity})
-				}
+                }
                 # xs
                 50 < .150
                 50{
                     stdWrap.if.isTrue = {$plugin.lef_bootstrap_theme.retina.enable}
                     25.value = AND ({$plugin.lef_bootstrap_theme.retina.mediaquery}:{$plugin.lef_bootstrap_theme.retina.pixeldensity})
-				}
+                }
                 # xxs
                 60 < .160
                 60{
                     stdWrap.if.isTrue = {$plugin.lef_bootstrap_theme.retina.enable}
                     25.value = AND ({$plugin.lef_bootstrap_theme.retina.mediaquery}:{$plugin.lef_bootstrap_theme.retina.pixeldensity})
-				}
+                }
                 
                 stdWrap{
                     if{
                         value  = srcset
                         equals = {$styles.content.imgtext.layoutKey}
-					}
+                    }
                     noTrimWrap = | sizes="|"|
                     required = 1
-				}
-			}
-		}
-	}
+                }
+            }
+        }
+    }
 }
