@@ -12,13 +12,13 @@
 					The menu column will slide to top
 					when it switch into mobile view.  -->
 
-				<div id="contentMenu" class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-					<f:alias map="{col_md:2, col_lg:2}">
+				<div id="contentMenu" class="col-md-2">
+					<f:alias map="{col_md:2}">
 						<f:render partial="Content/Menu" section="Default" arguments="{_all}" />
 					</f:alias>
 				</div>
-				<div id="contentMain" class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
-					<f:alias map="{col_md:10, col_lg:10}">
+				<div id="contentMain" class="col-md-10">
+					<f:alias map="{col_md:10}">
 						<f:render partial="Content/Main" section="Default" arguments="{_all}" />
 					</f:alias>
 				</div>
