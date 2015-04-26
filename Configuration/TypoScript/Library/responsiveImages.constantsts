@@ -4,6 +4,7 @@
 # #customcategory=responsive images=Theme: Responsive Images
 # #customcategory=grid system=Theme: Responsive Grid setup
 # #customcategory=variants=Theme: Variants
+# #customcategory=aspect=Theme: Aspect
 # customsubcategory=600=Breakpoints media query (screen width)
 # customsubcategory=610=Container
 # customsubcategory=620=Container behaviour
@@ -17,12 +18,20 @@
 # customsubcategory=730=Variants large (inherit value from smaller)
 # customsubcategory=740=Variants extra large (inherit value from smaller)
 
+
 plugin.lef_bootstrap_theme {
-    
+  theme{
+  # cat=aspect,advanced/560/121; type=string; label= Bootstrap base theme path.:Base path where the themes are stored.  Default: fileadmin/lef_bootstrap3_less/
+  path = EXT:lef_bootstrap_theme/Resources/Private/Dyncss/
+  # cat=aspect,advanced/560/124; type=string; label= Bootstrap base theme name.:User defined theme sub folder name without any /.Must remain empty when theme is not set to User defined (where to find a theme.less file)
+  name = 
+  # cat=aspect,advanced/560/122; type=options[Default typo3=Standard,Cerulean=Cerulean,Cosmo=Cosmo,Cyborg=Cyborg,Darkly=Darkly,Flatly=Flatly,Journal=Journal,Lumen=Lumen,Paper=Paper,Readable=Readable,Sandstone=Sandstone,Simplex=Simplex,Slate=Slate,Spacelab=Spacelab,Superhero=Superhero,United=United,Yeti=Yeti,User defined=]; label= Bootstrap base theme.: https://bootswatch.com  
+  folder = Standard
+  }
     screen{
         # cat=grid system,advanced/600/150; type=int+; label=1 Screen : Minimum width of the screen extra small
         xs = 480
-		# cat=grid system,advanced/600/140; type=int+; label=2 Screen : Minimum width of the screen small
+	# cat=grid system,advanced/600/140; type=int+; label=2 Screen : Minimum width of the screen small
         sm = 768
         # cat=grid system,advanced/600/130; type=int+; label=3 Screen : Minimum width of the screen medium
         md = 992
@@ -37,7 +46,7 @@ plugin.lef_bootstrap_theme {
     container{    
         # cat=grid system,advanced/610/140; type=int+; label=1 Container : Width of the container extra small
         xs = 450
-		# cat=grid system,advanced/610/130; type=int+; label=2 Container : Width of the container small
+	# cat=grid system,advanced/610/130; type=int+; label=2 Container : Width of the container small
         sm = 720
         # cat=grid system,advanced/610/120; type=int+; label=3 Container : Width of the container medium
         md = 940
@@ -52,8 +61,8 @@ plugin.lef_bootstrap_theme {
         # cat=grid system,expert/620/240; type=boolean; label=1 Fluid : Container behaviour fluid extra small
         xs = 1
         # cat=grid system,expert/620/230; type=boolean; label=2 Fluid : Container behaviour fluid small 
-        sm = 1
-		# cat=grid system,expert/620/220; type=boolean; label=3 Fluid : Container behaviour fluid medium
+        sm = 0
+	# cat=grid system,expert/620/220; type=boolean; label=3 Fluid : Container behaviour fluid medium
         md = 0
         # cat=grid system,expert/620/210; type=boolean; label=4 Fluid : Container behaviour fluid large
         lg = 0
@@ -75,7 +84,8 @@ plugin.lef_bootstrap_theme {
         xl = 0
         
         # cat=responsive images,advanced/650/100; type=boolean; label=Adapt number of columns for multiple images according breakpoints 
-        imageColumnsAdaptive= 1
+        imageColumnsAdaptive = 1
+       
     }
     
     # cat=grid system,advanced/610/200; type=int+; label=Number of columns : Maximum number of columns
@@ -95,6 +105,8 @@ plugin.lef_bootstrap_theme {
     images{
         # cat=responsive images,advanced/650/110; type=options[50%=2,33%=3,25%=4]; label=Image in text width:Divide the available width by this  
         divideImageAboveTextWidth = 2
+        # cat=responsive images,advanced/650/120; type=boolean; label=Image user defined width:Conserve proportion beteween text and image across breakpoint.  
+        userWidthProportional = 1
     }
     
     frame{
@@ -127,51 +139,51 @@ plugin.lef_bootstrap_theme {
         }
         sm{
             # cat=variants,expert/710/100; type=int+; label=Frame wide-screen:Width of wide-screen padding
-            wideScreen = 
+            wideScreen = 120
             # cat=variants,expert/710/110; type=int+; label=Frame framed:Width of framed padding
-            framed = 
+            framed = 40
             # cat=variants,expert/710/120; type=int+; label=Frame framed-small:Width of framed-small padding
-            framedSmall = 
+            framedSmall = 20
             # cat=variants,expert/710/130; type=int+; label=Frame framed-large:Width of framed-large padding
-            framedLarge = 
+            framedLarge = 50
             # cat=variants,expert/710/140; type=int+; label=Frame alert:Width of alert padding 
-            alert = 
+            alert = 32
         }
         md{
             # cat=variants,expert/720/100; type=int+; label=Frame wide-screen:Width of wide-screen padding
             wideScreen = 120
             # cat=variants,expert/720/110; type=int+; label=Frame framed:Width of framed padding
-            framed = 
+            framed = 40
             # cat=variants,expert/720/120; type=int+; label=Frame framed-small:Width of framed-small padding
-            framedSmall = 
+            framedSmall = 20
             # cat=variants,expert/720/130; type=int+; label=Frame framed-large:Width of framed-large padding
-            framedLarge = 
+            framedLarge = 50
             # cat=variants,expert/720/140; type=int+; label=Frame alert:Width of alert padding 
-            alert = 
+            alert = 32
         }
         lg{
             # cat=variants,expert/730/100; type=int+; label=Frame wide-screen:Width of wide-screen padding
-            wideScreen = 
+            wideScreen = 120
             # cat=variants,expert/730/110; type=int+; label=Frame framed:Width of framed padding
-            framed = 
+            framed = 40
             # cat=variants,expert/730/120; type=int+; label=Frame framed-small:Width of framed-small padding
-            framedSmall = 
+            framedSmall = 20
             # cat=variants,expert/730/130; type=int+; label=Frame framed-large:Width of framed-large padding
-            framedLarge = 
+            framedLarge = 50
             # cat=variants,expert/730/140; type=int+; label=Frame alert:Width of alert padding 
-            alert = 
+            alert = 32
         }
         xl{
             # cat=variants,expert/740/100; type=int+; label=Frame wide-screen:Width of wide-screen padding
-            wideScreen = 
+            wideScreen = 120
             # cat=variants,expert/740/110; type=int+; label=Frame framed:Width of framed padding
-            framed = 
+            framed = 40
             # cat=variants,expert/740/120; type=int+; label=Frame framed-small:Width of framed-small padding
-            framedSmall = 
+            framedSmall = 20
             # cat=variants,expert/740/130; type=int+; label=Frame framed-large:Width of framed-large padding
-            framedLarge = 
+            framedLarge = 50
             # cat=variants,expert/740/140; type=int+; label=Frame alert:Width of alert padding 
-            alert = 
+            alert = 32
         }
     }
 }
@@ -181,7 +193,7 @@ styles.content.imgtext {
     layoutKey = lazyload
 }
 
-themes.mode.isProduction = 0
+
 
 # defaults for css styled content
 styles.content.imgtext{

@@ -1,0 +1,84 @@
+lib.gridelements {
+	carousel {
+		setCurrent {
+			dataWrap = {field:tx_themes_behaviour},{field:tx_themes_variants}
+			postUserFunc = KayStrobach\Themes\Frontend\CssClassMapper->mapGenericToFramework
+			postUserFunc {
+				behaviourMapping =< lib.content.cssMap.behaviour
+				variantMapping =< lib.content.cssMap.variants
+			}
+		}
+		cObject = FLUIDTEMPLATE
+		cObject {
+			file = EXT:lef_bootstrap_theme/Resources/Private/Templates/Elements/Carousel.html
+		}
+		columns.0.renderObj = CASE
+		columns.0.renderObj {
+			key.field = CType
+			textpic = COA
+			textpic {
+			        10 >
+			        
+			        # handle variants width
+			        
+				# use tt_content responsive image rendering
+				10 < tt_content.image
+				
+				# disable caption rendering
+				10.20.preRenderRegisters.allImageCaptions.cObject.renderObj.data >
+			        
+			        # remove stdHeader
+			        10.10 >
+			        
+			        # limit number of images
+			        10.20.imgMax = 1
+			        
+			        # force below center layout
+			        10.20.textpos.override = 26 
+			        
+			        # render as css background style with mediaquery
+			        # note : require id="element uid" in tab container to work
+			        # see fluid template
+				
+				10.20{
+					# clean up standard image wrapping
+					1.layoutKey = cssbackground
+					renderMethod = cssbackground
+					imageStdWrap >
+					imageStdWrapNoWidth >
+					imageColumnStdWrap >
+					layout.50 = TEXT
+					layout.50.value = ###IMAGES###
+					layout.key.override = 50
+					# adds ie9- element id
+					1.params.stdWrap.cObject.stdWrap.override{
+	cObject = TEXT
+	cObject{
+                field = uid
+				wrap = #c|
+            }
+}
+				}
+				/*
+				*/
+				
+				20 = COA
+				20 {
+					wrap =  <div class="carousel-caption">|</div>
+					10 = TEXT
+					10.cObject = TEXT
+					10.cObject.dataWrap = <h3>{file:current:title}</h3>
+					10.override.cObject =< lib.stdheader
+					20 = TEXT
+					20.cObject = TEXT
+					20.cObject.dataWrap = <p>{file:current:description}</p>
+					20.override.cObject =< tt_content.text.20
+					20.override.if.isTrue.field = bodytext
+				}
+			        
+			}
+		}
+	}
+}
+
+tt_content.gridelements_pi1.20.10.setup.carousel < lib.gridelements.carousel

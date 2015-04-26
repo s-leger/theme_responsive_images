@@ -1,0 +1,24 @@
+tx_gridelements.setup{
+	2ColumnGrid.frame = 3
+	2ColumnGrid.icon = EXT:lef_bootstrap_theme/Resources/Public/Backend/Images/gridlayout_col2.gif
+  
+	3ColumnGrid.frame = 3
+	3ColumnGrid.icon = EXT:lef_bootstrap_theme/Resources/Public/Backend/Images/gridlayout_col3.gif
+  
+	4ColumnGrid.frame = 3
+	4ColumnGrid.icon = EXT:lef_bootstrap_theme/Resources/Public/Backend/Images/gridlayout_col4.gif
+  
+	accordion.frame = 3
+	carousel.frame = 3
+	container.frame = 3
+	container.icon = EXT:lef_bootstrap_theme/Resources/Public/Backend/Images/gridlayout_container.gif
+  
+	row.frame = 3
+	row.icon = EXT:lef_bootstrap_theme/Resources/Public/Backend/Images/gridlayout_row.gif
+  
+	singleColumn.frame = 3
+	singleColumn.icon = EXT:lef_bootstrap_theme/Resources/Public/Backend/Images/gridlayout_col.gif
+  
+	singleColumnHorizontal.frame = 3
+	tabs.frame = 3
+ }

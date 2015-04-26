@@ -1,25 +1,22 @@
-.color-green #areaFooter{
-  background-color: #70ef62;
-}
-.color-orange #areaFooter{
-  background-color: #f9b233;
-}
-.color-lightblue #areaFooter{
-  background-color: #009ee0;
-}
-.color-darkblue #areaFooter{
-  background-color: #001a4b;
-}
-.color-lightgrey #areaFooter{
-  background-color: #d1d5dc;
-}
-.color-darkgrey #areaFooter{
-  background-color: #505050;
-}
-.color-pink #areaFooter{
-  background-color: #d60054;
-}
+//
+// Footer Section
+// --------------------------------------------------
+#areaFooter {
+	border-top: 1px solid darken(@gray,10%);
+	color: contrast(@gray-dark, black, white, 43%);
+	margin-top: @line-height-computed*2;
+	padding: @line-height-computed 0 @line-height-computed*1.5;
+	background: @gray-dark;
 
+	a {
+		color: contrast(@gray-dark, black, white, 43%);
+		&:hover,
+		&:focus {
+		  color: @link-color;
+		}
+	}
+}
+/*
 #areaFooter {
 
   margin-top: 20px;
@@ -33,7 +30,7 @@
         list-style: disc outside none;
         padding: 0;
         width: 100%;
-        color: #fff;
+        color: @text-color;
         li {
           width: 20%;
           .menu-heading {
@@ -48,7 +45,7 @@
             margin-left: 16px;
             a {
               line-height: 22px;
-              color: #fff;
+              color: @text-color;
               font-size: 13px;
             }
           }
@@ -63,7 +60,7 @@
         float: right;
         li {
           a {
-            color: #fff;
+            color: @text-color;
             padding: 0;
             line-height: 42px;
             display: block;
@@ -92,8 +89,9 @@
     
     .footer-line {
       font-size: 12px;
-      color: #fff;
+      color: @text-color;
       text-align: right;
     }
   }
 }
+*/

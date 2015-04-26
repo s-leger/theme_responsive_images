@@ -1,0 +1,12 @@
+plugin.tx_themes {
+	_LOCAL_LANG {
+		fr {
+			languageMenu_label = Language
+			breadcrumb_label = Vous êtes ici
+			imprint_label = Impressum
+			quickSearch_label = Chercher
+			topLink_label = vers le haut
+			printLink_label = imprimer
+		}
+	}
+}

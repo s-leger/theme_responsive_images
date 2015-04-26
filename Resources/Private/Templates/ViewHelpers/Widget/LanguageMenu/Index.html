@@ -1,13 +1,21 @@
-<ul id="menuLanguage" class="theme_bootstrap nav navbar-nav navbar-right">
+{namespace theme=KayStrobach\Themes\ViewHelpers}
+<ul id="menuLanguage" class="nav navbar-nav navbar-right">
 	<f:for each="{menu}" as="entry" iteration="itemIteration">
 		<f:if condition="{entry.active}">
 			<f:then>
 				<li class="{entry.class} active">
 					<a href="#">
+						<f:if condition="{theme:constant(constant: 'themes.configuration.menu.lang.flags')}>0">
 						<f:image src="{flagIconPath}{entry.flag}.{flagIconFileExtension}"
 							title="{entry.label}"
 							alt="{entry.label}"/>
+						</f:if>	
+						<f:if condition="{theme:constant(constant: 'themes.configuration.menu.lang.text.full')}>0">
 						<span>{entry.label}</span>
+						</f:if>
+						<f:if condition="{theme:constant(constant: 'themes.configuration.menu.lang.text.short')}>0">
+						<span>{entry.flag}</span>
+						</f:if>
 					</a>
 				</li>
 			</f:then>
@@ -22,10 +30,17 @@
 								additionalParams="{L: entry.L}"
 								title="{entry.label}"
 								argumentsToBeExcludedFromQueryString="{0: 'id'}">
+								<f:if condition="{theme:constant(constant: 'themes.configuration.menu.lang.flags')}>0">
 								<f:image src="{flagIconPath}{entry.flag}.{flagIconFileExtension}"
 									title="{entry.label}"
 									alt="{entry.label}"/>
-								<span>{entry.label}</span>
+								</f:if>		
+								<f:if condition="{theme:constant(constant: 'themes.configuration.menu.lang.text.full')}>0">
+						                <span>{entry.label}</span>
+						                </f:if>
+						                <f:if condition="{theme:constant(constant: 'themes.configuration.menu.lang.text.short')}>0">
+						                <span>{entry.flag}</span>
+						                </f:if>
 							</f:link.page>
 						</li>
 					</f:then>
@@ -33,10 +48,17 @@
 						<!-- Not translated! -->
 						<li class="{entry.class} noTranslation">
 							<a href="#">
+							    <f:if condition="{theme:constant(constant: 'themes.configuration.menu.lang.flags')}>0">
 								<f:image src="{flagIconPath}{entry.flag}.{flagIconFileExtension}"
 										 title="{entry.label}"
 										 alt="{entry.label}"/>
-								<span>{entry.label}</span>
+								</f:if>	
+								<f:if condition="{theme:constant(constant: 'themes.configuration.menu.lang.text.full')}>0">
+						                <span>{entry.label}</span>
+						                </f:if>
+						                <f:if condition="{theme:constant(constant: 'themes.configuration.menu.lang.text.short')}>0">
+						                <span>{entry.flag}</span>
+						                </f:if>
 							</a>
 						</li>
 					</f:else>

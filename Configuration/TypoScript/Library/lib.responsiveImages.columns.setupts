@@ -8,143 +8,201 @@ lib.responsiveImages{
     # parse Flexform width classes
     
     parseWidthClass{
-        extralarge = TEXT
-        extralarge{
+        template = TEXT
+        template{
             field = tx_themes_columnsettings
             stdWrap{
                 intval = 1
                 stdWrap.replacement.10 {            
-                    search = #extralarge-width-([0-9]+)#i
                     replace = \1
                     useRegExp = 1
                 }
             }
         }
-        large     < .extralarge 
+        extralarge  < .template 
+        extralarge.stdWrap.stdWrap.replacement.10.search = #extralarge-width-([0-9]+)#i
+        large       < .template 
         large.stdWrap.stdWrap.replacement.10.search = #large-width-([0-9]+)#i
-        medium     < .extralarge 
+        medium      < .template 
         medium.stdWrap.stdWrap.replacement.10.search = #medium-width-([0-9]+)#i
-        small        < .extralarge 
+        small       < .template 
         small.stdWrap.stdWrap.replacement.10.search = #small-width-([0-9]+)#i
-        extrasmall < .extralarge 
+        extrasmall  < .template 
         extrasmall.stdWrap.stdWrap.replacement.10.search = #extrasmall-width-([0-9]+)#i
     }
     
-    
     columns {
-        registerWidth = COA
-        registerWidth {
-            
-            
-            10 = LOAD_REGISTER
-            10 {            
-                
-                # Number of columns : propagate from lower to upper
-                
-                columns_xs{                
- 		   cObject = TEXT
-                   cObject{
-                      value = {$plugin.lef_bootstrap_theme.columns}
-                      override < lib.responsiveImages.parseWidthClass.extrasmall
-                      }
-                }
-                columns_sm{
-                   cObject = TEXT
-                   cObject{
-                	data = register:columns_xs
-                	override < lib.responsiveImages.parseWidthClass.small
-                   }
-                }
-                columns_md{
-                   cObject = TEXT
-                   cObject{
-                	data = register:columns_sm 
-                	override < lib.responsiveImages.parseWidthClass.medium
-                   }
-                }
-                columns_lg{
-                   cObject = TEXT
-                   cObject{
-                	data = register:columns_md 
-                	override < lib.responsiveImages.parseWidthClass.large
-                	}
-                }	
-                columns_xl{
-                   cObject = TEXT
-                   cObject{                   
-			data = register:columns_lg
-                	override < lib.responsiveImages.parseWidthClass.extralarge
-                	}
-                }	
-                
-                # Column width 
-                width_xxs {
-                    cObject = COA
-                    cObject{
-                        20 = TEXT
-                        20.data = register:width_xxs
-                        30 = TEXT
-                        30.value = /{$plugin.lef_bootstrap_theme.columns}*
-                        40 = TEXT
-                        40.data = register:columns_xs
-                        stdWrap{
-                            # handle .container behaviour
-                            override = {$plugin.lef_bootstrap_theme.container.xs}
-                            override.if  {
-                                value.field = tx_themes_behaviour
-                                isInList = container    
-                            }
-                        }
-                    }
-                    prioriCalc = 1
-                }
-                
-                # Compute columns width
-                # handle .container behiavour
-                # reset width to $.container.xx property
-                # No way to get back from fixed to fluid 
-                
-                width_xs < .width_xxs
-                width_xs.cObject {
-                    20.data = register:width_xs
-                    40.data = register:columns_xs
-                    stdWrap.override = {$plugin.lef_bootstrap_theme.container.xs}
-                }
-                width_sm < .width_xxs
-                width_sm.cObject { 
-                    20.data = register:width_sm
-                    40.data = register:columns_sm
-                    stdWrap.override = {$plugin.lef_bootstrap_theme.container.sm}
-                }
-                width_md < .width_xxs
-                width_md.cObject {
-                    20.data = register:width_md
-                    40.data = register:columns_md
-                    stdWrap.override = {$plugin.lef_bootstrap_theme.container.md}
-                }
-                width_lg < .width_xxs
-                width_lg.cObject {
-                    20.data = register:width_lg
-                    40.data = register:columns_lg
-                    stdWrap.override = {$plugin.lef_bootstrap_theme.container.lg}
-                }
-                width_xl < .width_xxs
-                width_xl.cObject {
-                    20.data = register:width_xl
-                    40.data = register:columns_xl
-                    stdWrap.override = {$plugin.lef_bootstrap_theme.container.xl}
+        
+        # a template without any values stored to be able to override
+        width_template = COA
+        width_template {
+            20 = TEXT
+            30 = TEXT
+            30.value = /{$plugin.lef_bootstrap_theme.columns}*
+            40 = TEXT
+            stdWrap{
+                # handle .container behaviour
+                override.if  {
+                    value.field = tx_themes_behaviour
+                    isInList = container    
                 }
             }
         }
+        
+        registerWidth = LOAD_REGISTER
+        registerWidth {
+            /*
+             registerDepthTest{
+        	cObject = TEXT
+        	cObject{
+        		data = register:registerDepthTest
+        		wrap = 1+|
+        	}
+        	prioriCalc = 1
+           }
+            */
+            
+            fluid{
+                cObject = TEXT
+                cObject{
+                    value = 0
+                    override.data = register:fluid
+                    override.if  {
+                        value.field = tx_themes_behaviour
+                        isInList = container  
+                        negate = 1  
+                    }
+                }
+            }
+            # Number of columns : propagate from lower to upper
+            
+            columns_xs{                
+                cObject = TEXT
+                cObject{
+                    value = {$plugin.lef_bootstrap_theme.columns}
+                    override.cObject < lib.responsiveImages.parseWidthClass.extrasmall
+                }
+            }
+            columns_sm{
+                cObject = TEXT
+                cObject{
+                    data = register:columns_xs
+                    override.cObject < lib.responsiveImages.parseWidthClass.small
+                }
+            }
+            columns_md{
+                cObject = TEXT
+                cObject{
+                    data = register:columns_sm 
+                    override.cObject < lib.responsiveImages.parseWidthClass.medium
+                }
+            }
+            columns_lg{
+                cObject = TEXT
+                cObject{
+                    data = register:columns_md 
+                    override.cObject < lib.responsiveImages.parseWidthClass.large
+                }
+            }    
+            columns_xl{
+                cObject = TEXT
+                cObject{                   
+                    data = register:columns_lg
+                    override.cObject < lib.responsiveImages.parseWidthClass.extralarge
+                }
+            }    
+            
+            
+            
+            # Column width 
+            width_xxs {
+                cObject < lib.responsiveImages.columns.width_template 
+                cObject{
+                    20.data = register:width_xxs
+                    40.data = register:columns_xs
+                    stdWrap.override = {$plugin.lef_bootstrap_theme.container.xs}+{$plugin.lef_bootstrap_theme.gutter}
+                }
+                prioriCalc = 1
+            }
+            
+            # Compute columns width
+            # handle .container behiavour
+            # reset width to $.container.xx property
+            # No way to get back from fixed to fluid 
+            
+            width_xs {
+                cObject < lib.responsiveImages.columns.width_template 
+                cObject{
+                    20.data = register:width_xs
+                    40.data = register:columns_xs
+                    stdWrap.override = {$plugin.lef_bootstrap_theme.container.xs}+{$plugin.lef_bootstrap_theme.gutter}
+                    stdWrap.override.stdWrap {
+                        override = {$plugin.lef_bootstrap_theme.container.sm}+{$plugin.lef_bootstrap_theme.gutter}
+                        override.if.isTrue = {$plugin.lef_bootstrap_theme.fluid.xs}
+                    }
+                }
+                prioriCalc = 1
+            }
+            width_sm {
+                cObject < lib.responsiveImages.columns.width_template 
+                cObject{
+                    20.data = register:width_sm
+                    40.data = register:columns_sm
+                    stdWrap.override = {$plugin.lef_bootstrap_theme.container.sm}+{$plugin.lef_bootstrap_theme.gutter}
+                    stdWrap.override.stdWrap {
+                        override = {$plugin.lef_bootstrap_theme.container.md}+{$plugin.lef_bootstrap_theme.gutter}
+                        override.if.isTrue = {$plugin.lef_bootstrap_theme.fluid.sm}
+                    }
+                }
+                prioriCalc = 1
+            }
+            width_md {
+                cObject < lib.responsiveImages.columns.width_template 
+                cObject{
+                    20.data = register:width_md
+                    40.data = register:columns_md
+                    stdWrap.override = {$plugin.lef_bootstrap_theme.container.md}+{$plugin.lef_bootstrap_theme.gutter}
+                    stdWrap.override.stdWrap {
+                        override = {$plugin.lef_bootstrap_theme.container.lg}+{$plugin.lef_bootstrap_theme.gutter}
+                        override.if.isTrue = {$plugin.lef_bootstrap_theme.fluid.md}
+                    }
+                }
+                prioriCalc = 1
+            }
+            width_lg {
+                cObject < lib.responsiveImages.columns.width_template 
+                cObject{
+                    20.data = register:width_lg
+                    40.data = register:columns_lg
+                    stdWrap.override = {$plugin.lef_bootstrap_theme.container.lg}+{$plugin.lef_bootstrap_theme.gutter}
+                    stdWrap.override.stdWrap {
+                        override = {$plugin.lef_bootstrap_theme.container.xl}+{$plugin.lef_bootstrap_theme.gutter}
+                        override.if.isTrue = {$plugin.lef_bootstrap_theme.fluid.lg}
+                    }
+                }
+                prioriCalc = 1
+            }
+            width_xl {
+                cObject < lib.responsiveImages.columns.width_template 
+                cObject{
+                    20.data = register:width_xl
+                    40.data = register:columns_xl
+                    stdWrap.override = {$plugin.lef_bootstrap_theme.container.xl}+{$plugin.lef_bootstrap_theme.gutter}
+                }
+                prioriCalc = 1
+            }
+            
+        }
+        
         restoreWidth = RESTORE_REGISTER        
     }
 }   
 
 tt_content.gridelements_pi1.20 {
-    6  = < lib.responsiveImages.columns.registerWidth
+    7  = < lib.responsiveImages.columns.registerWidth
     
-    7 < lib.responsiveImages.debug
-    7.10.value = Columns:
+    18 < lib.responsiveImages.debug
+    18.10.value = Columns:
     
     14 = < lib.responsiveImages.columns.restoreWidth 
 }

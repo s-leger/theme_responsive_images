@@ -15,8 +15,8 @@ namespace LEF\LefBootstrapTheme\Hooks\ContentObject;
  */
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 /**
- * Processing of mediaQueries (string replace of "," separated params)
- * min, max, density tag, pixelDensity
+ * stdWrap support of mediaQueries
+ * 
  * 
  */
 class ContentObjectOneSourceCollectionHook  implements \TYPO3\CMS\Frontend\ContentObject\ContentObjectOneSourceCollectionHookInterface {
@@ -32,33 +32,15 @@ class ContentObjectOneSourceCollectionHook  implements \TYPO3\CMS\Frontend\Conte
 	 * @return string HTML Content for oneSourceCollection
 	 */
 	public function getOneSourceCollection(array $sourceRenderConfiguration, array $sourceConfiguration, $oneSourceCollection, \TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer &$parentObject){
-	        
-		$mediaQueryStr = $sourceConfiguration['mediaQuery'];
-		$mediaQuery = \TYPO3\CMS\Core\Utility\GeneralUtility::trimExplode(',', $mediaQueryStr);
 
-		$res = "";
-		$len = count($mediaQuery);
-		$min        = ($len > 0 && $mediaQuery[0]) ? (int)$mediaQuery[0] : false;
-		$max 	    = ($len > 1 && $mediaQuery[1]) ? (int)$mediaQuery[1] : false;
-		$densityTag = ($len > 2 && $mediaQuery[2]) ? $mediaQuery[2] : false;
-		$density    = ($len > 3 && $mediaQuery[3]) ? (int)$mediaQuery[3] : false;
-		if ($min) {
-			$res .= "(min-width:" . $min . "px)";
+	    	if (isset($sourceConfiguration['mediaQuery'])) {
+			$mediaQuery = $parentObject->stdWrap($sourceConfiguration['mediaQuery'], $sourceConfiguration['mediaQuery.']);
+			$oneSourceCollection = str_replace($sourceConfiguration['mediaQuery'], $mediaQuery, $oneSourceCollection);
 		}
-		if ($min && $max){
-			$res .= " AND ";
-		}
-		if ($max){
-			$res .= "(max-width:" . ($max-1) . "px)";
-		}
-		if ($densityTag && $density){
-			if ($min || $max){
-				$res .= " AND ";
-			}
-			$res .= "(" . $densityTag . ":" . $density . ")";
-		}
-		if ($len > 0){
-		   $oneSourceCollection = str_replace($mediaQueryStr, $res, $oneSourceCollection);
+		
+		if (isset($sourceConfiguration['backgroundElementID'])) {
+			$backgroundElementID = $parentObject->stdWrap($sourceConfiguration['backgroundElementID'], $sourceConfiguration['backgroundElementID.']);
+			$oneSourceCollection = str_replace($sourceConfiguration['backgroundElementID'], $backgroundElementID, $oneSourceCollection);
 		}
 		
 	return $oneSourceCollection;

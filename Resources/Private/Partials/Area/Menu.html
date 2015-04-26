@@ -1,0 +1,43 @@
+{namespace theme=KayStrobach\Themes\ViewHelpers}
+<div xmlns="http://www.w3.org/1999/xhtml" lang="en"
+     xmlns:f="http://typo3.org/ns/fluid/ViewHelpers">
+    <f:section name="Default">
+        <div id="menuMain" class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div>            
+                    <div class="col-xs-12">
+                        <div class="navbar-header">
+                            <div id="logoWrapper" class="navbar-brand">
+                                <f:cObject typoscriptObjectPath="lib.header.logo.main" />
+                            </div>
+                            <button data-target="#navbar-main" data-toggle="collapse" type="button" class="navbar-toggle">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        </div>
+                        <div id="navbar-main" class="navbar-collapse collapse">
+                            <f:cObject typoscriptObjectPath="lib.menu.main" />
+                            <f:if condition="{theme:constant(constant: 'themes.configuration.menu.lang.enable')}>0">
+                                <div class="menu-language-wrapper pull-right">
+                                    <theme:widget.languageMenu
+                                    availableLanguages="{theme:constant(constant: 'themes.languages.available')}"
+                                    currentLanguageUid="{theme:constant(constant: 'themes.languages.current.uid')}"
+                                    defaultLanguageIsoCodeShort="{theme:constant(constant: 'themes.languages.default.isoCodeShort')}"
+                                    defaultLanguageLabel="{theme:constant(constant: 'themes.languages.default.label')}"
+                                    defaultLanguageFlag="{theme:constant(constant: 'themes.languages.default.flag')}"
+                                    />
+                                    <f:if condition="{theme:constant(constant: 'themes.configuration.menu.lang.header')}>0">
+                                        <span>
+                                            <f:translate key="languageMenu_label" />
+                                        </span>
+                                    </f:if>
+                                </div>
+                            </f:if>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </f:section>
+</div>

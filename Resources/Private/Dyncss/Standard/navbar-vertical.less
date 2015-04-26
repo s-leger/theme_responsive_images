@@ -1,0 +1,31 @@
+
+## Vertical menu in 3 col container
+@media (min-width:@grid-float-breakpoint){
+	.navbar-top {
+		width:100% !important;
+		&.navbar-fixed-top {
+			position:relative;
+		}
+		>.container{
+			width:100% !important;
+			>.navbar-header {
+				float: none; 
+			}
+			>.navbar-collapse{
+				max-height: auto;
+				>.navbar-nav {
+					float: none;
+					>li {
+					float: none;
+					>.dropdown-menu {
+						  position: relative;
+						  top: 0; 
+						  left: 0; 
+						  float: none;
+						}
+					}
+				}	
+			}
+		}	
+	}
+}	

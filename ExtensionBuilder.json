@@ -1,0 +1,40 @@
+{
+    "modules": [
+
+    ],
+    "properties": {
+        "backendModules": [
+
+        ],
+        "description": "Provide advanced bootstrap theme\n-basic styles switcher\n-lazyload optimized images\n-advanced grid system",
+        "emConf": {
+            "category": "fe",
+            "custom_category": "",
+            "dependsOn": "typo3 => 6.2\nthemes=>2.3.2\ntheme_bootstrap=>1.0.4",
+            "disableLocalization": false,
+            "disableVersioning": false,
+            "sourceLanguage": "en",
+            "state": "alpha",
+            "targetVersion": "6.2",
+            "version": "0.0.1"
+        },
+        "extensionKey": "lef_bootstrap_theme",
+        "name": "Bootstrap Theme",
+        "originalExtensionKey": "",
+        "persons": [
+
+        ],
+        "plugins": [
+
+        ],
+        "vendorName": "Stephenleger"
+    },
+    "wires": [
+
+    ],
+    "log": {
+        "last_modified": "2015-04-11 04:36",
+        "extension_builder_version": "6.2.0",
+        "be_user": "Stephen Leger (4)"
+    }
+}

@@ -10,5 +10,10 @@ plugin.tx_themes {
 		layoutRootPaths {
 			500 = EXT:lef_bootstrap_theme/Resources/Private/Layouts/
 		}
+		widget.KayStrobach\Themes\ViewHelpers\Widget\LanguageMenuViewHelper{
+			templateRootPath = EXT:lef_bootstrap_theme/Resources/Private/Templates/
+			}
+		
+		
 	}
 }

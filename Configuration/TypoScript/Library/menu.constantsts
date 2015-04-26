@@ -1,0 +1,32 @@
+#############################################
+# Menu: Menu constants
+#############################################
+
+# #customcategory=menu=Theme: Menu settings
+# customsubcategory=menu_top=Menu-Top
+# customsubcategory=menu_main=Menu-Main
+# customsubcategory=menu_sub=Menu-Sub
+# customsubcategory=menu_special=Menu-Special
+# customsubcategory=menu_footer=Menu-Footer
+# customsubcategory=menu_breadcrumb=Menu-Breadcrumb
+# customsubcategory=menu_lang=Menu-Language
+
+# Menu language
+#############################################
+themes.configuration.menu.lang{
+	# cat=menu,advanced/menu_lang/; type=boolean; label=Display flags
+	flags      = 0
+	# cat=menu,advanced/menu_lang/; type=boolean; label=Display language label short (2 letter)
+	text.short = 1
+	# cat=menu,advanced/menu_lang/; type=boolean; label=Display language label full
+	text.full  = 0
+	# cat=menu,advanced/menu_lang/; type=boolean; label=Display header
+	header     = 0
+	# cat=menu,advanced/menu_lang/; type=boolean; label=Display language menu
+	enable     = 1
+	}
+
+# Menu breadcrumb
+#############################################
+# cat=menu,advanced/menu_breadcrumb/; type=boolean; label= Menu breadcrumb: Enable
+themes.configuration.menu.breadcrumb.enable= 0

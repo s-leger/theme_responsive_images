@@ -1,0 +1,21 @@
+tx_gridelements.setup.1ColumnGrid {
+	title = One column 
+	description = LLL:EXT:themes_gridelements/Resources/Private/Language/Elements.xlf:three_column_grid_description
+        icon = EXT:lef_bootstrap_theme/Resources/Public/Backend/Images/gridlayout_col1.gif
+  	frame = 3
+	config {
+		colCount = 1
+		rowCount = 1
+		rows {
+			1 {
+				columns {
+					1 {
+						name = LLL:EXT:themes_gridelements/Resources/Private/Language/Elements.xlf:left
+						colPos = 0
+					}
+					
+				}
+			}
+		}
+	}
+}

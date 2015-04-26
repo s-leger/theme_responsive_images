@@ -1,8 +1,8 @@
 {namespace theme=KayStrobach\Themes\ViewHelpers}
 <!-- theme_bootstrap: Layouts/Special.html [begin] -->
-<div id="layoutDefault">
+<div id="layoutDefault" class="body-bg">
 
-	<div id="menuMain" class="navbar navbar-default navbar-fixed-top">
+	<div id="menuMain" class="navbar navbar-default navbar-fixed-top navbar-top">
 		<div class="container">
 			<div class="navbar-header">
 				<div id="logoWrapper" class="navbar-brand">
@@ -36,10 +36,10 @@
 	
 	<div class="container">
 		<section id="areaFeature" class="page-header">
-			<f:cObject typoscriptObjectPath="lib.content.feature" />
+			<f:cObject typoscriptObjectPath="lib.content.feature"   data="{fluid:'{fluid}',col_xs:'{col_xs}',col_sm:'{col_sm}',col_md:'{col_md}',col_lg:'{col_lg}'}" />
 		</section>
 
-		<main id="areaMain">
+		<main id="areaMain" class="main-section">
 			<div id="menuBreadcrumbWrapper">
 				<span><f:translate key="breadcrumb_label" /></span>
 				<f:cObject typoscriptObjectPath="lib.menu.breadcrumb" />
@@ -48,7 +48,7 @@
 		</main>
 
 		<section id="areaExtended">
-			<f:cObject typoscriptObjectPath="lib.content.extended" />
+			<f:cObject typoscriptObjectPath="lib.content.extended"   data="{fluid:'{fluid}',col_xs:'{col_xs}',col_sm:'{col_sm}',col_md:'{col_md}',col_lg:'{col_lg}'}"/>
 		</section>
 	</div>
 

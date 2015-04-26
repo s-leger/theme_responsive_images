@@ -25,13 +25,13 @@ div.csc-textpic-beside-right .csc-textpic-imagewrap {padding:0; margin:0;}
 div.csc-textpic-intext .csc-textpic-imagewrap, 
 div.csc-textpic-beside .csc-textpic-imagewrap { max-width:50%;}
 */
-/*max-width: 50%;*/
+/* */
 div.csc-textpic-intext-left-nowrap  .csc-textpic-imagewrap,
 div.csc-textpic-intext-left  .csc-textpic-imagewrap, 
-div.csc-textpic-beside-left  .csc-textpic-imagewrap { margin-right: 15px; padding-right:15px;}
+div.csc-textpic-beside-left  .csc-textpic-imagewrap {max-width: 50%; margin-right: 15px; padding-right:15px;}
 div.csc-textpic-intext-right-nowrap .csc-textpic-imagewrap, 
 div.csc-textpic-intext-right .csc-textpic-imagewrap, 
-div.csc-textpic-beside-right .csc-textpic-imagewrap { margin-left: 15px; padding-left:15px;}
+div.csc-textpic-beside-right .csc-textpic-imagewrap {max-width: 50%; margin-left: 15px; padding-left:15px;}
 }
 
 /* ensure that .image-wrap max-width:50% donsen t apply on xsmall devices */
@@ -64,4 +64,14 @@ div.csc-textpic-imagecolumn, td.csc-textpic-imagecolumn .csc-textpic-image{
 div.csc-textpic-border div.csc-textpic-imagewrap .csc-textpic-image{
 	border: 1px solid silver;
 	padding: 4px;
+}
+/* fix display:table wrong size in multiple columns */
+figcaption.csc-textpic-caption,
+div.csc-textpic .csc-textpic-imagewrap figure, 
+div.csc-textpic figure.csc-textpic-imagewrap{
+	display:block;
+}
+ 
+.carousel div.csc-textpic .csc-textpic-imagewrap .csc-textpic-image{
+	margin-bottom:0;
 }

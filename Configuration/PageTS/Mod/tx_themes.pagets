@@ -1,4 +1,4 @@
 mod.tx_themes {
-	constantCategoriesToShow := addToList(responsive images, grid system, variants)
+	constantCategoriesToShow := addToList(responsive images, grid system, variants, aspect)
 }
 #, Theme: Bootstrap settings

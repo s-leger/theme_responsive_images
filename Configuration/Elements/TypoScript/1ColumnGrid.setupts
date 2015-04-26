@@ -1,0 +1,23 @@
+lib.gridelements {
+	1ColumnGrid < .defaultGridSetup
+	1ColumnGrid {
+		innerWrap.cObject.default.20 {
+			40.postUserFunc {
+				responsiveColumnMapping >
+			}
+			50 = TEXT
+			50.value = {$lib.content.cssMap.responsive.row.default-row}
+			50.noTrimWrap = | ||
+		}
+		columns.0 {
+			prepend = TEXT
+			prepend {
+				value= {$lib.content.cssMap.responsive.column.extrasmall-width-12}
+				noTrimWrap = |<div class="column-1 |">|
+			}
+			renderObj =< tt_content
+			wrap = |</div>
+		}
+	}
+}
+tt_content.gridelements_pi1.20.10.setup.1ColumnGrid < lib.gridelements.1ColumnGrid

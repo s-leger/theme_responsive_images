@@ -1,0 +1,31 @@
+{namespace theme=KayStrobach\Themes\ViewHelpers}
+<!-- theme_bootstrap: Layouts/Clean.html [begin] -->
+<div id="layoutClean" class="body-bg">
+        
+        <f:render partial="Area/Menu" section="Default" arguments="{_all}" />
+        	<f:alias map="{fluid:'1'}">
+		<section id="areaFeature" class="page-header">
+			<f:cObject typoscriptObjectPath="lib.content.feature"  data="{fluid:'{fluid}',col_xs:'{col_xs}',col_sm:'{col_sm}',col_md:'{col_md}',col_lg:'{col_lg}'}"/>
+		</section>
+
+		<main id="areaMain" class="main-section">
+			<f:if condition="{theme:constant(constant: 'themes.configuration.menu.breadcrumb.enable')}>0">
+			<div class="container">
+			<div id="menuBreadcrumbWrapper">
+				<span><f:translate key="breadcrumb_label" /></span>
+				<f:cObject typoscriptObjectPath="lib.menu.breadcrumb" />
+			</div>
+			</div>
+			</f:if>
+			<f:render section="Default" />
+		</main>
+
+		<section id="areaExtended">
+			<f:cObject typoscriptObjectPath="lib.content.extended" data="{fluid:'{fluid}',col_xs:'{col_xs}',col_sm:'{col_sm}',col_md:'{col_md}',col_lg:'{col_lg}'}" />
+		</section>
+	
+                </f:alias>
+	<f:render partial="Area/Footer" section="Default" arguments="{_all}" />
+	
+</div>
+<!-- theme_bootstrap: Layouts/Clean.html [end] -->

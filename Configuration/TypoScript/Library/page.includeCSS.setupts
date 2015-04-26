@@ -1,8 +1,8 @@
  page {
   includeCSS {
-    theme = EXT:theme_bootstrap/Resources/Private/Dyncss/import.less
+#   theme = EXT:theme_bootstrap/Resources/Private/Dyncss/import.less
 #   theme = EXT:lef_bootstrap_theme/Resources/Private/Dyncss/import.less
-
+    theme = {$plugin.lef_bootstrap_theme.theme.path}{$plugin.lef_bootstrap_theme.theme.folder}{$plugin.lef_bootstrap_theme.theme.name}/theme.less
     responsiveimages = EXT:lef_bootstrap_theme/Resources/Public/Css/fix.css
     fontawesome = EXT:theme_bootstrap/Resources/Public/Contrib/font-awesome-4.3.0/css/font-awesome.css
     fontawesome {

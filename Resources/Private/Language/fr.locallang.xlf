@@ -1,246 +1,150 @@
-<?xml version='1.0' encoding='utf-8'?>
 <xliff version="1.0">
-  <file source-language="en" target-language="fr" datatype="plaintext" original="messages" date="2015-03-14T08:08:22Z" product-name="lef_responsive_grid">
-        <header/>
-        <body>
-      <trans-unit id="title.1col" xml:space="preserve" approved="yes">
-        <source>1 column</source>
-      <target state="translated">1 colonne</target></trans-unit>
-      <trans-unit id="description.1col" xml:space="preserve" approved="yes">
-        <source>Inserts a 1-columns grid for content. The width and offset of column may be set for different screen sizes.</source>
-      <target state="translated">Insère une ligne à 1 colonne. La largeur et de décâlage des colonnes peut être défini pour chaque taille d'écran.</target></trans-unit>
-      <trans-unit id="title.2col" xml:space="preserve" approved="yes">
-        <source>2 columns</source>
-      <target state="translated">2 colonnes</target></trans-unit>
-      <trans-unit id="description.2col" xml:space="preserve" approved="yes">
-        <source>Inserts a 2-columns grid for content. The width and offset of each column may be set for different screen sizes.</source>
-      <target state="translated">Insère une ligne à 2 colonnes. La largeur et de décâlage des colonnes peut être défini pour chaque taille d'écran.</target></trans-unit>
-      <trans-unit id="title.3col" xml:space="preserve" approved="yes">
-        <source>3 columns</source>
-      <target state="translated">3 colonnes</target></trans-unit>
-            <trans-unit id="description.3col" xml:space="preserve" approved="yes">
-        <source>Inserts a 3-columns grid for content. The width and offset of each column may be set for different screen sizes.</source>
-      <target state="translated">Insère une ligne à 3 colonnes. La largeur et de décâlage des colonnes peut être défini pour chaque taille d'écran.</target></trans-unit>
-            <trans-unit id="title.4col" xml:space="preserve" approved="yes">
-        <source>4 columns</source>
-      <target state="translated">4 colonnes</target></trans-unit>
-            <trans-unit id="description.4col" xml:space="preserve" approved="yes">
-        <source>Inserts a 4-columns grid for content. The width and offset of each column may be set for different screen sizes.</source>
-      <target state="translated">Insère une ligne à 4 colonnes. La largeur et de décâlage des colonnes peut être défini pour chaque taille d'écran.</target></trans-unit>
-      <trans-unit id="title.container" xml:space="preserve" approved="yes">
-        <source>Container</source>
-      <target state="translated">Conteneur</target></trans-unit>
-      <trans-unit id="description.container" xml:space="preserve" approved="yes">
-        <source>Inserts a container for columns. Use this as a column container with a clean template.</source>
-      <target state="translated">Insère un conteneur pour lignes. S'utilise avec un template sans conteneur.</target></trans-unit>
-    
-    
-     <trans-unit id="title.row" xml:space="preserve" approved="yes">
-        <source>Row</source>
-      <target state="translated">Ligne</target></trans-unit>
-      <trans-unit id="description.row" xml:space="preserve" approved="yes">
-        <source>Inserts a row container for columns.</source>
-      <target state="translated">Insère une ligne pour des colonnes.</target></trans-unit>
-    
-     <trans-unit id="title.col" xml:space="preserve" approved="yes">
-        <source>Container</source>
-      <target state="translated">Colonne</target></trans-unit>
-      <trans-unit id="description.col" xml:space="preserve" approved="yes">
-        <source>Inserts a container for columns. Use this as a column container with a clean template.</source>
-      <target state="translated">Insère une colonne. Permet de séparer les lignes en multiples colonnes.</target></trans-unit>
-    
-    
-    <trans-unit id="sheet.visibility" xml:space="preserve" approved="yes">
-        <source>Visibility</source>
-      <target state="translated">Visibilité</target></trans-unit>
-      
-       <trans-unit id="sheet.css" xml:space="preserve" approved="yes">
-        <source>Custom CSS</source>
-      <target state="translated">CSS utilisateur</target></trans-unit>
-      
-      <trans-unit id="sheet.breakpoint" xml:space="preserve" approved="yes">
-        <source>Breakpoints</source>
-      <target state="translated">Point de rupture</target></trans-unit>
-      <trans-unit id="sheet.md" xml:space="preserve" approved="yes">
-        <source>Width (Medium)</source>
-      <target state="translated">Moyen</target></trans-unit>
-            <trans-unit id="sheet.sm" xml:space="preserve" approved="yes">
-        <source>Width (Small)</source>
-      <target state="translated">Petit</target></trans-unit>
-            <trans-unit id="sheet.xs" xml:space="preserve" approved="yes">
-        <source>Width (Xtra small)</source>
-      <target state="translated">Très petit</target></trans-unit>
-            <trans-unit id="sheet.lg" xml:space="preserve" approved="yes">
-        <source>Width (Large)</source>
-      <target state="translated">Grand</target></trans-unit>
-     
-               <trans-unit id="sheet.width" xml:space="preserve" approved="yes">
-        <source>Width</source>
-      <target state="translated">Largeur</target></trans-unit>
-            <trans-unit id="sheet.offset" xml:space="preserve" approved="yes">
-        <source>Offset</source>
-      <target state="translated">Decâlage</target></trans-unit>
-               <trans-unit id="sheet.push" xml:space="preserve" approved="yes">
-        <source>Push</source>
-      <target state="translated">Pousser</target></trans-unit>
-            <trans-unit id="sheet.pull" xml:space="preserve" approved="yes">
-        <source>Pull</source>
-      <target state="translated">Tirer</target></trans-unit>
-     
-     
-       <trans-unit id="label.md" xml:space="preserve" approved="yes">
-        <source>Medium</source>
-      <target state="translated">Moyen</target></trans-unit>
-            <trans-unit id="label.sm" xml:space="preserve" approved="yes">
-        <source>Small</source>
-      <target state="translated">Petit</target></trans-unit>
-            <trans-unit id="label.xs" xml:space="preserve" approved="yes">
-        <source>Extra small</source>
-      <target state="translated">Très petit</target></trans-unit>
-            <trans-unit id="label.lg" xml:space="preserve" approved="yes">
-        <source>Large</source>
-      <target state="translated">Grand</target></trans-unit>          
-       
-      <trans-unit id="label.content" xml:space="preserve" approved="yes">
-        <source>Content</source>
-      <target state="translated">Contenu</target></trans-unit>
-      
-      <trans-unit id="label.row" xml:space="preserve" approved="yes">
-        <source>Row</source>
-      <target state="translated">Ligne</target></trans-unit>
-      <trans-unit id="label.col" xml:space="preserve" approved="yes">
-        <source>Column</source>
-      <target state="translated">Colonne</target></trans-unit>
-            <trans-unit id="label.col1" xml:space="preserve" approved="yes">
-        <source>Column 1</source>
-      <target state="translated">Colonne 1</target></trans-unit>
-            <trans-unit id="label.col2" xml:space="preserve" approved="yes">
-        <source>Column 2</source>
-      <target state="translated">Colonne 2</target></trans-unit>
-            <trans-unit id="label.col3" xml:space="preserve" approved="yes">
-        <source>Column 3</source>
-      <target state="translated">Colonne 3</target></trans-unit>
-            <trans-unit id="label.col4" xml:space="preserve" approved="yes">
-        <source>Column 4</source>
-      <target state="translated">Colonne 4</target></trans-unit>
-      
-      <trans-unit id="label.width.col1" xml:space="preserve" approved="yes">
-        <source>Column 1 width</source>
-      <target state="translated">Colonne 1 largeur</target></trans-unit>
-            <trans-unit id="label.width.col2" xml:space="preserve" approved="yes">
-        <source>Column 2 width</source>
-      <target state="translated">Colonne 2 largeur</target></trans-unit>
-            <trans-unit id="label.width.col3" xml:space="preserve" approved="yes">
-        <source>Column 3 width</source>
-      <target state="translated">Colonne 3 largeur</target></trans-unit>
-            <trans-unit id="label.width.col4" xml:space="preserve" approved="yes">
-        <source>Column 4 width</source>
-      <target state="translated">Colonne 4 largeur</target></trans-unit>
-      
-      <trans-unit id="label.offset.col1" xml:space="preserve" approved="yes">
-        <source>Column 1 offset</source>
-      <target state="translated">Colonne 1 décalage</target></trans-unit>
-            <trans-unit id="label.offset.col2" xml:space="preserve" approved="yes">
-        <source>Column 2 offset</source>
-      <target state="translated">Colonne 2 décalage</target></trans-unit>
-            <trans-unit id="label.offset.col3" xml:space="preserve" approved="yes">
-        <source>Column 3 offset</source>
-      <target state="translated">Colonne 3 décalage</target></trans-unit>
-            <trans-unit id="label.offset.col4" xml:space="preserve" approved="yes">
-        <source>Column 4 offset</source>
-      <target state="translated">Colonne 4 décalage</target></trans-unit>
-  
-   <trans-unit id="label.push.col1" xml:space="preserve" approved="yes">
-        <source>Column 1 push</source>
-      <target state="translated">Colonne 1 pousser vers la droite</target></trans-unit>
-            <trans-unit id="label.push.col2" xml:space="preserve" approved="yes">
-        <source>Column 2 push</source>
-      <target state="translated">Colonne 2 pousser vers la droite</target></trans-unit>
-            <trans-unit id="label.push.col3" xml:space="preserve" approved="yes">
-        <source>Column 3 push</source>
-      <target state="translated">Colonne 3 pousser vers la droite</target></trans-unit>
-            <trans-unit id="label.push.col4" xml:space="preserve" approved="yes">
-        <source>Column 4 push</source>
-      <target state="translated">Colonne 4 pousser vers la droite</target></trans-unit>
-  
-  
-   <trans-unit id="label.pull.col1" xml:space="preserve" approved="yes">
-        <source>Column 1 pull</source>
-      <target state="translated">Colonne 1 tirer vers la gauche</target></trans-unit>
-            <trans-unit id="label.pull.col2" xml:space="preserve" approved="yes">
-        <source>Column 2 pull</source>
-      <target state="translated">Colonne 2 tirer vers la gauche</target></trans-unit>
-            <trans-unit id="label.pull.col3" xml:space="preserve" approved="yes">
-        <source>Column 3 pull</source>
-      <target state="translated">Colonne 3 tirer vers la gauche</target></trans-unit>
-            <trans-unit id="label.pull.col4" xml:space="preserve" approved="yes">
-        <source>Column 4 pull</source>
-      <target state="translated">Colonne 4 tirer vers la gauche</target></trans-unit>
-  
-       <trans-unit id="label.clear.col1" xml:space="preserve" approved="yes">
-        <source>Column 1 add a column reset</source>
-      <target state="translated">Colonne 1 retour a la ligne</target></trans-unit>
-            <trans-unit id="label.clear.col2" xml:space="preserve" approved="yes">
-        <source>Column 2 add a column reset</source>
-      <target state="translated">Colonne 2  retour a la ligne</target></trans-unit>
-            <trans-unit id="label.clear.col3" xml:space="preserve" approved="yes">
-        <source>Column 3 add a column resetl</source>
-      <target state="translated">Colonne 3  retour a la ligne</target></trans-unit>
-         
-      <trans-unit id="label.css.row" xml:space="preserve" approved="yes">
-        <source>Row additional CSS class</source>
-      <target state="translated">Classe CSS additionnelle pour la ligne</target></trans-unit>
-      <trans-unit id="label.css.col1" xml:space="preserve" approved="yes">
-        <source>Column 1 additional CSS class</source>
-      <target state="translated">Classe CSS additionnelle pour la colonne 1</target></trans-unit>
-            <trans-unit id="label.css.col2" xml:space="preserve" approved="yes">
-        <source>Column 2 additional CSS class</source>
-      <target state="translated">Classe CSS additionnelle pour la colonne 2</target></trans-unit>
-            <trans-unit id="label.css.col3" xml:space="preserve" approved="yes">
-        <source>Column 3 additional CSS class</source>
-      <target state="translated">Classe CSS additionnelle pour la colonne 3</target></trans-unit>
-            <trans-unit id="label.css.col4" xml:space="preserve" approved="yes">
-        <source>Column 4 additional CSS class</source>
-      <target state="translated">Classe CSS additionnelle pour la colonne 4</target></trans-unit>
-      
-      <trans-unit id="label.visible.sm" xml:space="preserve" approved="yes">
-        <source>Visible on Small devices</source>
-      <target state="translated">Visible sur les petits écrans</target></trans-unit>
-      <trans-unit id="label.visible.xs" xml:space="preserve" approved="yes">
-        <source>Visible on Extra small devices</source>
-      <target state="translated">Visible sur les très petits écrans</target></trans-unit>
-      <trans-unit id="label.visible.md" xml:space="preserve" approved="yes">
-        <source>Visible on Medium devices</source>
-      <target state="translated">Visible sur les écrans moyens</target></trans-unit>
-      <trans-unit id="label.visible.lg" xml:space="preserve" approved="yes">
-        <source>Visible on Large devices</source>
-      <target state="translated">Visible sur les grands écrans</target></trans-unit>
-      
-      <trans-unit id="label.hidden.sm" xml:space="preserve" approved="yes">
-        <source>Hidden on Small devices</source>
-      <target state="translated">Caché sur les petits écrans</target></trans-unit>
-      <trans-unit id="label.hidden.xs" xml:space="preserve" approved="yes">
-        <source>Hidden on Extra small devices</source>
-      <target state="translated">Caché sur les très petits écrans</target></trans-unit>
-      <trans-unit id="label.hidden.md" xml:space="preserve" approved="yes">
-        <source>Hidden on Medium devices</source>
-      <target state="translated">Caché sur les écrans moyens</target></trans-unit>
-      <trans-unit id="label.hidden.lg" xml:space="preserve" approved="yes">
-        <source>Hidden on Large devices</source>
-      <target state="translated">Caché sur les grands écrans</target></trans-unit>
-      
-      <trans-unit id="label.notset" xml:space="preserve" approved="yes">
-        <source>not set</source>
-      <target state="translated">non défini</target></trans-unit>
-      
-       <trans-unit id="label.enable" xml:space="preserve" approved="yes">
-        <source>Enable</source>
-      <target state="translated">Activer</target></trans-unit>
-      <trans-unit id="label.none" xml:space="preserve" approved="yes">
-        <source>none</source>
-      <target state="translated">aucun</target></trans-unit>
-      
-      
-    </body>
-  </file>
+	<file source-language="en"
+		target-language="fr"
+		datatype="plaintext"
+		original="messages"
+		date="2014-04-13T18:20:51Z"
+		product-name="theme_bootstrap">
+		<header/>
+		<body>
+			<trans-unit id="breadcrumb_label" xml:space="preserve">
+				<source>You are here</source>
+				<target>Vous êtes ici</target>
+			</trans-unit>
+			<trans-unit id="languageMenu_label" xml:space="preserve">
+				<source>Language:</source>
+				<target>Language:</target>
+			</trans-unit>
+			<trans-unit id="imprint_label" xml:space="preserve">
+				<source>Imprint</source>
+				<target>Impressum</target>
+			</trans-unit>
+			<!--
+				Hier können nun beliebig viele
+				weitere Übersetzungen zu
+				Sprachwerten folgen.
+			-->
+
+			<!-- Responsive devices labels -->
+			<trans-unit id="content.responsive.devices.desktop" xml:space="preserve">
+				<source>Desktop</source>
+				<target>Desktop</target>
+			</trans-unit>
+			<trans-unit id="content.responsive.devices.mobile" xml:space="preserve">
+				<source>Mobile</source>
+				<target>Mobile</target>
+			</trans-unit>
+			<trans-unit id="content.responsive.devices.tablet" xml:space="preserve">
+				<source>Tablet</source>
+				<target>Tablette</target>
+			</trans-unit>
+			<trans-unit id="content.responsive.devices.large" xml:space="preserve">
+				<source>Large</source>
+				<target>Large</target>
+			</trans-unit>
+
+			<!-- Responsive visibility labels -->
+			<trans-unit id="content.responsive.visibility.default" xml:space="preserve">
+				<source>Default</source>
+				<target>Defaut</target>
+			</trans-unit>
+			<trans-unit id="content.responsive.visibility.inline" xml:space="preserve">
+				<source>Inline</source>
+				<target>Inline</target>
+			</trans-unit>
+			<trans-unit id="content.responsive.visibility.inline_block" xml:space="preserve">
+				<source>Inline-Block</source>
+				<target>Inline-Block</target>
+			</trans-unit>
+			<trans-unit id="content.responsive.visibility.block" xml:space="preserve">
+				<source>Block</source>
+				<target>Block</target>
+			</trans-unit>
+			<trans-unit id="content.responsive.visibility.hidden" xml:space="preserve">
+				<source>Hidden</source>
+				<target>Caché</target>
+			</trans-unit>
+
+			<!-- Variants labels -->
+			<trans-unit id="content.variants.page_header" xml:space="preserve">
+				<source>Page-Header</source>
+				<target>Titre de page</target>
+			</trans-unit>
+			<trans-unit id="content.variants.wide_screen" xml:space="preserve">
+				<source>Wide-Screen</source>
+				<target>Ecran large</target>
+			</trans-unit>
+			<trans-unit id="content.variants.framed" xml:space="preserve">
+				<source>Framed</source>
+				<target>Encadré</target>
+			</trans-unit>
+			<trans-unit id="content.variants.framed_small" xml:space="preserve">
+				<source>Framed (small)</source>
+				<target>Encadré (petit)</target>
+			</trans-unit>
+			<trans-unit id="content.variants.framed_large" xml:space="preserve">
+				<source>Framed (large)</source>
+				<target>Encadré (grand)</target>
+			</trans-unit>
+			<trans-unit id="content.variants.alert_success" xml:space="preserve">
+				<source>Success-Message</source>
+				<target>Succès</target>
+			</trans-unit>
+			<trans-unit id="content.variants.alert_info" xml:space="preserve">
+				<source>Information</source>
+				<target>Information</target>
+			</trans-unit>
+			<trans-unit id="content.variants.alert_warning" xml:space="preserve">
+				<source>Warning</source>
+				<target>Alerte</target>
+			</trans-unit>
+			<trans-unit id="content.variants.alert_danger" xml:space="preserve">
+				<source>Error-Message</source>
+				<target>Erreur</target>
+			</trans-unit>
+
+			<!-- Behaviours labels -->
+			<trans-unit id="content.behaviour.container" xml:space="preserve">
+				<source>Container</source>
+				<target>Container</target>
+			</trans-unit>
+			<trans-unit id="content.behaviour.container_fluid" xml:space="preserve">
+				<source>Container (fluid)</source>
+				<target>Conteneur (fluid)</target>
+			</trans-unit>
+			<trans-unit id="content.behaviour.fade_in" xml:space="preserve">
+				<source>Fade in</source>
+				<target>Dissout</target>
+			</trans-unit>
+			<trans-unit id="content.behaviour.screenreader_only" xml:space="preserve">
+				<source>Screenreader only</source>
+				<target>Lecteurs d'ecran seuls</target>
+			</trans-unit>
+			<trans-unit id="content.behaviour.screenreader_only_focusable" xml:space="preserve">
+				<source>Screenreader only (focusable)</source>
+				<target>Lecteurs d'ecran seuls (focusable)</target>
+			</trans-unit>
+			<trans-unit id="content.behaviour.print_hidden" xml:space="preserve">
+				<source>Hidden for printing</source>
+				<target>Caché à l'impression</target>
+			</trans-unit>
+			<trans-unit id="content.behaviour.print_visible_block" xml:space="preserve">
+				<source>Visible for printing (block)</source>
+				<target>Visible à  à l'impression (block)</target>
+			</trans-unit>
+			<trans-unit id="content.behaviour.print_visible_inline" xml:space="preserve">
+				<source>Visible for printing (inline)</source>
+				<target>Visible à  à l'impression (inline)</target>
+			</trans-unit>
+			<trans-unit id="content.behaviour.print_visible_inline_block" xml:space="preserve">
+				<source>Visible for printing (inline-block)</source>
+				<target>Visible à  à l'impression (inline-block)</target>
+			</trans-unit>
+			<trans-unit id="content.behaviour.table_responsive" xml:space="preserve">
+				<source>Responsive table</source>
+				<target>Table adaptive</target>
+			</trans-unit>
+
+		</body>
+	</file>
 </xliff>

@@ -1,0 +1,93 @@
+# Restore registers
+lib.debugRegister{
+	
+	increaseDepth = LOAD_REGISTER
+	increaseDepth{
+		registerDepth{
+			cObject = TEXT
+			cObject{
+				data = register:registerDepth
+				wrap = 1+|
+				
+			}
+			prioriCalc = 1
+		}
+	}
+	
+	initDepth = LOAD_REGISTER
+	initDepth{
+		registerDepth {
+			cObject = TEXT
+			cObject.value = 0
+		}
+	}
+	
+	restore = RESTORE_REGISTER
+
+	debug = COA
+	debug{
+	
+	10 = TEXT
+	10.wrap = <h4>|</h4>
+	20 = TEXT
+	20.data = register:registerDepth
+	20.wrap = <div class="debug">depth:|</div>
+	}	
+}
+
+tt_content {
+    
+    gridelements_pi1.20{
+        5 =< lib.debugRegister.increaseDepth 
+	6 < lib.debugRegister.debug
+	6.10.value = GRIDELEMENT_PI1 register:
+	7 >
+        8 >
+		
+	14 =< lib.debugRegister.restore
+            
+        # recursive call on sub elements and they wont restore
+        15 < lib.debugRegister.debug
+	15.10.value = GRIDELEMENT_PI1 restore:
+	
+        18 >
+    }
+    
+    image{
+        5  =< lib.debugRegister.increaseDepth 
+        6  < lib.debugRegister.debug
+        6.10.value = IMAGE register:
+        30 =< lib.debugRegister.restore
+        36  < lib.debugRegister.debug
+        36.10.value = IMAGE restore:
+       
+    }
+    textpic{
+        5  =< lib.debugRegister.increaseDepth
+        6  < lib.debugRegister.debug
+        6.10.value = TEXTPIC register:
+        30 =< lib.debugRegister.restore
+        36  < lib.debugRegister.debug
+        36.10.value = TEXTPIC restore:
+    }
+}
+
+
+lib.content.main {
+    10 = < lib.debugRegister.initDepth
+    
+    15 < lib.debugRegister.debug
+    15.10.value = Template:
+    
+    100 = < lib.debugRegister.restore
+}
+
+lib.content.feature{
+    10  = < lib.debugRegister.initDepth 
+    100 = < lib.debugRegister.restore
+}
+
+lib.content.extended{
+    10  = < lib.debugRegister.initDepth 
+    100 = < lib.debugRegister.restore
+}
